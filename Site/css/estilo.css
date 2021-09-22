@@ -100,7 +100,7 @@ display: flex;}
 #menu ul li a:hover{
 		font-size: 20px;
 		background-color:#a7ffae;
-		transition: background .4s;
+		transition:background-color .4s;
 		transition:font-size .4s;
 
 
