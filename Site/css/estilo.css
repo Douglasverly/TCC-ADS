@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+*{margin: 0;
+	padding: 0;
+	font-family: 'Raleway', sans-serif;}
+
+body{margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100%;
+	background-color: #F7FDF0;
+	position: absolute;}
+
+
+#topo{margin: 0;
+	padding: 0;
+	background-color:#f5ffe6;
+		background-image:url("../img/fundo.png") ;
+		background-size: contain;
+		background-position: center;
+		width: 100vw;
+		height: 200px;
+		display: flex;
+		flex-direction: row;
+		align-content: center;
+		align-items: center;
+		justify-content: center;}
+
+#topo #logo{
+	margin: 0;
+	padding: 0;
+	width: 200px;height: 200px;
+	border-radius: 100px;
+	background-image: url("../img/logo.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;}
+
+
+#centro{
+	margin: 0;
+	padding: 0;
+		width: 100vw;
+		height: 600px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+#cintro{margin: 0;
+		padding: 0; border-left:2px solid rgba(0, 0, 0, 0.2);
+		border-right:3px solid rgba(0, 0, 0, 0.2);
+		width: 80%;
+		height: 500px;}
+
+#final{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	background-color: rgba(255, 99, 39,0.8);
+	padding: 0;width: 100vw;
+		height:150px;
+		text-align: center;
+		font-size: 10px;
+
+	}		
+
+#final a{padding: 15px;
+		margin:5px;
+	text-decoration: none;
+	color: black;}
+
+	#final a:hover{color: blueviolet;
+					transition:color 0.4s;
+					font-size: 13px;
+					transition: font-size 0.3s; }
+
+
+
+#menu{align-items: center;
+	flex-direction: column;
+	justify-content: center;
+
+display: flex;}
+
+#menu ul{
+		list-style: none;
+		padding: 0;
+		background: #f5ffe6;
+	}
+
+#menu ul li{display: inline;}
+
+#menu ul li a{display: inline-block;
+			color: black;
+			text-decoration: none;
+			padding: 25px;}
+#menu ul li a:hover{
+		font-size: 20px;
+		background-color:#a7ffae;
+		transition: background .4s;
+		transition:font-size .4s;
+
+
+}
