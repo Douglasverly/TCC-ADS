@@ -25,9 +25,9 @@
 
 <nav id="menu">
 	<ul >
-		<li><label for="Inicio" >Início</label></li>
-		<li><label for="Cardapio" >Cardápio</label></li>
-		<li><label for="Contato" >Contato</label></li>
+		<li><label for="Inicio" id="inicioLB" >Início</label></li>
+		<li><label for="Cardapio"id="cardapioLB" >Cardápio</label></li>
+		<li><label for="Contato"id="contatoLB" >Contato</label></li>
 		<li><label for="user" id="userlogo">Entrar</label></li>
 	</ul>
 
@@ -41,10 +41,11 @@
 					<div id="minilogo"></div>
 					<form action="login.php" method="post">
 					
-						<label for="">Loguin</label>
-						<input type="text" name="loguin" id="loguin"maxlength="10">
+						<label for="">Usuário</label>
+						<input type="text" name="loguin" id="loguin"maxlength="10" required="true">
 						<label for="">Senha</label>
-						<input type="password" name="senha" id="senha"maxlength="10">
+						<input type="password" name="senha" id="senha"maxlength="10"required="true">
+						<button type="submit">Entrar</button>
 
 					</form>
 					<p>ainda não possui cadastro?clique <a href="#">aqui</a></p>
@@ -53,13 +54,13 @@
 		</div>
 		
 		<div id="contatodiv">
-			<p> &nbsp; Se desaja entrar em contato conosco para alguma sanar alguma duvida você tem as seguintes opções:</p>
+			<p> &nbsp; Se desejar entrar em contato conosco para sanar alguma dúvida você tem as seguintes opções:</p>
 
 			<label >Telefone: (21)xxxx-xxxx</label>	
-			<label >WathsAPP: (21)xxxxx-xxxx</label>
-			<label >E-mail: contato@helthyfood.com</label>
+			<label >Whatsapp: (21)xxxxx-xxxx</label>
+			<label >E-mail: contato@healthyfood.com</label>
 
-			<p> &nbsp; Lembrando que o contato deve-rá ser feito no horário comercial pelo telefone ou deixe a mensagem no WathsAPP ou E-mail que entraremos em contato assim que possível.</p>
+			<p> &nbsp; Lembrando que o contato deve-rá ser feito no horário comercial pelo telefone ou deixe uma mensagem no Whatsapp ou E-mail que entraremos em contato assim que possível.</p>
 
 		</div>
 
