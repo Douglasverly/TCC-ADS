@@ -10,11 +10,14 @@
 	<link rel="stylesheet" type="text/css" href="CSS/estilo.css">
 </head>
 <body>
-	<input type="checkbox" class="check" id="user">
-	<input type="checkbox" class="check" id="Contato">
-	<input type="checkbox" class="check" id="Cardapio">
-	<input type="checkbox" class="check" id="Inicio">
-		
+	 
+	<input type="checkbox" class="check" id="user"> 
+	
+
+	<input type="radio" class="check" name="select" id="Inicio">
+	<input type="radio" class="check" name="select" id="Cardapio">
+	<input type="radio" class="check" name="select" id="Contato">
+
 
 <div id="topo">
 	<div id="logo"></div>
@@ -22,9 +25,9 @@
 
 <nav id="menu">
 	<ul >
-		<li><a href="#">Início</a></li>
-		<li><a href="#">Cardápio</a></li>
-		<li><a href="#contatodiv">Contato</a></li>
+		<li><label for="Inicio" >Início</label></li>
+		<li><label for="Cardapio" >Cardápio</label></li>
+		<li><label for="Contato" >Contato</label></li>
 		<li><label for="user" id="userlogo">Entrar</label></li>
 	</ul>
 
