@@ -51,6 +51,10 @@ body{margin: 0;
 #cintro{margin: 0;
 		padding: 0; border-left:2px solid rgba(0, 0, 0, 0.2);
 		border-right:3px solid rgba(0, 0, 0, 0.2);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		width: 80%;
 		height: 500px;}
 
@@ -97,12 +101,12 @@ display: flex;}
 			text-decoration: none;
 			padding: 25px;}
 			
-#menu ul li #userlogo{padding: 25px; cursor: pointer;
+#menu ul li label{padding: 25px; cursor: pointer;
 					font-family: 'Raleway', sans-serif;
 					text-decoration: none;
 					font-weight:1000;}
 			
-#menu ul li  #userlogo:hover{cursor: pointer;
+#menu ul li  label:hover{cursor: pointer;
 	font-size: 20px;
 	color: #ffbb01;
 	background-color:#a7ffae;
@@ -115,7 +119,7 @@ display: flex;}
 		transition:font-size .4s;
 }
 
-#user{display: none;}
+.check{display: none;}
 
 #closelog{z-index: 60;
 			color: rgb(255, 254, 254);
@@ -136,14 +140,15 @@ display: flex;}
 			height: 350px;
 			border: 1px solid rgba(0, 0, 0, 0.664);
 			margin: auto;
+			position: absolute;
 			z-index: 50;
 			align-items: center;
 			transition: all;
 			flex-direction:column;
 			display: none;
-			background-color: rgba(0, 0, 0, 0.726); }
+			background-color: rgba(0, 0, 0, 0.877); }
 
-input:checked ~ #centro #cintro #logindiv{	display: flex;
+#user:checked ~ #centro #cintro #logindiv{	display: flex;
 											transition:all .5s;}
 
 #centro #cintro #logindiv #minilogo{width: 100%;
@@ -167,9 +172,22 @@ input:checked ~ #centro #cintro #logindiv{	display: flex;
 											align-items: center;
 											padding: 5px;
 											}	
-#centro #cintro #logindiv #loginform form label{padding: 15px;}
+#centro #cintro #logindiv #loginform form label{padding: 15px;color: white;}
 #centro #cintro #logindiv #loginform p{margin-top: 20px;
 										color:white;
 										font-size: 10px;}	
 #centro #cintro #logindiv #loginform p a{color: red;}
 
+#centro #cintro #contatodiv{padding: 0;
+							display: none;
+							justify-content: center;
+							flex-direction: column;
+							align-items: center;
+							width: 400px;
+							height: 100%;
+							background-color: rgba(248, 248, 248, 0);
+							z-index: 40;
+}
+#centro #cintro #contatodiv label{padding: 30px;margin: 0%;}
+
+#Contato:checked ~ #centro #cintro #contatodiv{display: flex;}
