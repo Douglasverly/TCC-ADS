@@ -96,8 +96,19 @@ display: flex;}
 			color: black;
 			text-decoration: none;
 			padding: 25px;}
-#menu ul li a #userlogo:hover{cursor: pointer;}
-#menu ul li a:hover{
+			
+#menu ul li #userlogo{padding: 25px; cursor: pointer;
+					font-family: 'Raleway', sans-serif;
+					text-decoration: none;
+					font-weight:1000;}
+			
+#menu ul li  #userlogo:hover{cursor: pointer;
+	font-size: 20px;
+	color: #ffbb01;
+	background-color:#a7ffae;
+	transition:font-size .4s;}
+
+	#menu ul li a:hover{
 		font-size: 20px;
 		color: #ffbb01;
 		background-color:#a7ffae;
@@ -160,4 +171,5 @@ input:checked ~ #centro #cintro #logindiv{	display: flex;
 #centro #cintro #logindiv #loginform p{margin-top: 20px;
 										color:white;
 										font-size: 10px;}	
-#centro #cintro #logindiv #loginform p a{color: red;}																													
+#centro #cintro #logindiv #loginform p a{color: red;}
+
