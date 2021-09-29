@@ -8,8 +8,18 @@ body{margin: 0;
 	padding: 0;
 	width: 100vw;
 	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	background-color: #F7FDF0;
 	position: absolute;}
+body::-webkit-scrollbar {
+	width: 8px;
+	background-color: rgb(0, 0, 0); /* or add it to the track */
+	  }
+body::-webkit-scrollbar-thumb {
+	border-radius: 20px;
+    background: rgb(68, 68, 68);
+}	  
 
 
 #topo{margin: 0;
@@ -47,9 +57,14 @@ body{margin: 0;
 		align-items: center;
 		justify-content: center;
 	}
+
 #cintro{margin: 0;
 		padding: 0; border-left:2px solid rgba(0, 0, 0, 0.2);
 		border-right:3px solid rgba(0, 0, 0, 0.2);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		width: 80%;
 		height: 500px;}
 
@@ -72,7 +87,7 @@ body{margin: 0;
 	text-decoration: none;
 	color: black;}
 
-	#final a:hover{color: blueviolet;
+#final a:hover{color: blueviolet;
 					transition:color 0.4s;
 					font-size: 13px;
 					transition: font-size 0.3s; }
@@ -82,26 +97,117 @@ body{margin: 0;
 #menu{align-items: center;
 	flex-direction: column;
 	justify-content: center;
-
-display: flex;}
+	display: flex;}
 
 #menu ul{
 		list-style: none;
 		padding: 0;
-		background: #f5ffe6;
-	}
-
+		background: #f5ffe6;}
 #menu ul li{display: inline;}
+			
+#menu ul li label{padding: 25px; cursor: pointer;
+					display: inline-block;
+					text-decoration: none;
+					color: black;
+					font-weight:1000;}
+			
+#menu ul li  label:hover{cursor: pointer;
+	font-size: 20px;
+	color: #ffffff;
+	background-color:#a7ffae;
+	transition:font-size .4s;}
+	
+.check{display: none;}
 
-#menu ul li a{display: inline-block;
-			color: black;
-			text-decoration: none;
-			padding: 25px;}
-#menu ul li a:hover{
-		font-size: 20px;
-		background-color:#a7ffae;
-		transition: background .4s;
-		transition:font-size .4s;
+#closelog{z-index: 60;
+			color: rgb(255, 254, 254);
+			display: block;
+			width: 20px;
+			text-align: center;
+			height: 20px;
+			margin-left: 92%;
+			padding: 3.5px;}
+
+#closelog:hover{background-color: red;
+				color: black;
+				cursor: pointer;}			
 
 
-}
+#centro #cintro #logindiv{width: 300px;
+			box-shadow: 6px 4px 2px rgba(0, 0, 0, 0.6);
+			height: 350px;
+			border: 1px solid rgba(0, 0, 0, 0.664);
+			margin: auto;
+			position: absolute;
+			z-index: 50;
+			align-items: center;
+			transition: all;
+			flex-direction:column;
+			display: none;
+			background-color: rgba(0, 0, 0, 0.877); }
+
+#user:checked ~ #centro #cintro #logindiv{	display: flex;
+											transition:all .5s;}
+
+#centro #cintro #logindiv #minilogo{width: 100%;
+									height: 110px;
+									background-image: url("../img/LOGO.png");
+									background-position: center;
+									background-repeat: no-repeat;
+									background-size: contain;}
+
+
+#centro #cintro #logindiv #loginform{width: 100%;
+										height: 100%;
+										display: flex;
+										flex-direction: column;
+										align-items: center;}
+#centro #cintro #logindiv #loginform form{align-items: center;
+											width: 100%;
+											height: 40%;
+											display: flex;
+											flex-direction: column;
+											align-items: center;
+											padding: 5px;
+											}	
+#centro #cintro #logindiv #loginform form label{padding: 10px;color: white;}
+
+#centro #cintro #logindiv #loginform form button{margin-top:10px;width: 50px;height: 30px;
+												border-style: outset;border-color: #a7ffae;
+												font-weight:700;
+												display: block;}
+
+#centro #cintro #logindiv #loginform form button:hover{background-color: #a7ffae;
+														padding: 4px;
+														width: 70px;
+														transition: padding .5s;
+														border-style: outset;
+														border-color: #e6ffe8;
+														font-weight:700;cursor: pointer;}
+
+#centro #cintro #logindiv #loginform p{margin-top: 20px;
+										color:white;
+										font-size: 10px;
+									}	
+
+#centro #cintro #logindiv #loginform p a{color: red;}
+
+#centro #cintro #contatodiv{padding: 0;
+							display: none;
+							justify-content: center;
+							flex-direction: column;
+							align-items: center;
+							width: 400px;
+							height: 100%;
+							background-color: rgba(248, 248, 248, 0);
+							z-index: 40;}
+#centro #cintro #contatodiv label{padding: 30px;margin: 0%;}
+#centro #cintro #contatodiv p{font-size: 15px;}
+
+
+#Contato:checked ~ #centro #cintro #contatodiv{display: flex;}
+#Contato:checked ~ #menu ul li #contatoLB{background-color:#ffbb01;}
+#Cardapio:checked ~ #menu ul li #cardapioLB{background-color:#ffbb01;}
+#Inicio:checked ~ #menu ul li #inicioLB{background-color:#ffbb01;}
+
+#centro #cintro #contatodiv:target{display: flex;}
