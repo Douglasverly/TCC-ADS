@@ -1,5 +1,6 @@
 <?php
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +43,7 @@
 				<div id="loginform">
 					<div id="minilogo"></div>
 					<form action="../Site/PHP/login.php" method="post">
-					
+
 						<label for="">Usuário</label>
 						<input type="text" name="login" id="login"maxlength="15" required="true">
 						<label for="">Senha</label>

@@ -38,6 +38,7 @@ if(($validacao == 1) && ($dados['id_access']==3))
 }
 
 else{
+    $_SESSION['erro_login']=true;
     header('Location: ../index.php');
     exit();
 }
