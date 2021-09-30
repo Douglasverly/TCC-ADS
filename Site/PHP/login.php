@@ -2,7 +2,7 @@
 session_start();
 include('conexao.php');
  if(empty($_POST['login']) || empty($_POST['senha'])){
-     header('Location: ../index.html');
+     header('Location: ../index.php');
      exit();
  }
 
@@ -38,6 +38,6 @@ if(($validacao == 1) && ($dados['id_access']==3))
 }
 
 else{
-    header('Location: ../index.html');
+    header('Location: ../index.php');
     exit();
 }

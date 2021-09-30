@@ -2,7 +2,7 @@
 session_start();
 unset ($_SESSION['nome']);
 
-header('Location: ../index.html');
+header('Location: ../index.php');
 exit();
 
 ?>

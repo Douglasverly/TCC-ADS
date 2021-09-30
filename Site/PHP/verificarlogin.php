@@ -3,6 +3,6 @@ session_start();
 
 if(!$_SESSION['nome'])
 {
-    header('Location: ../index.html');
+    header('Location: ../index.php');
     exit();
 }
