@@ -74,7 +74,7 @@
 <div id="final">
 	
 
-	<a href="#">Local de Cobertura</a> <a href="#">Endereço</a> <a href="#"> WathsApp</a> 
+	<a href="#">Local de Cobertura</a> <a href="#">Endereço</a> <a href="#"> Whatsapp</a> 
 	&#169; 2021 Helf Food
 
 </div>
