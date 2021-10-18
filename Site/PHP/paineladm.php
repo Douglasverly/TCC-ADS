@@ -73,9 +73,16 @@ include('verificarlogin.php');
 			<div id="DadosCargo">
 							<fieldset class="fieldset"><legend>Dados Cargo</legend>
 
-							<input class="coluna1-1"type="text" name="cargo"placeholder="Cargo aquí">
-							<input class="coluna2-1"type="text" name="salario"placeholder="Salário aquí">
-							<input class="coluna3-1"type="text" name="dtadmissao"placeholder="Data Admissão aquí">
+							
+                            <select name="selectcargo"class="coluna1-1" style="cursor:pointer;">
+
+                                    <option value="">Selecione o Cargo</option>
+                                  <option value="Administrador">Administrador</option> 
+                                  <option value="Atendente">Atendente</option> 
+                                  <option value="Entregador">Entregador</option>
+                                  <option value="Cozinheiro">Cozinheiro</option>
+                            </select>
+							<input class="coluna2-1"type="text" name="dtadmissao"placeholder="Data Admissão aquí">
 
 							</fieldset>
 
