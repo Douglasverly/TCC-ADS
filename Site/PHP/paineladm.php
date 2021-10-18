@@ -535,9 +535,9 @@ include('verificarlogin.php');
 	<div id="painel">
 
 		<div id="boasvindas">
-		<label>Bem Vindo(a),Douglas !</label>
+		<label>Bem Vindo(a),<?php echo($_SESSION['nome']) ?> !</label>
 		</div>
-		<a href="#">Deslogar!</a>
+		<a href="logout.php">Deslogar!</a>
 
 
 		<div id="menu">
