@@ -50,7 +50,7 @@ include('verificarlogin.php');
 		<div class="janela" id="CadFuncionario">
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Cadastrar Funcionário</p>
-				<form action="exemplo.php" method="POST">
+				<form action="inserefunc.php" method="POST">
 
 					
 			<div id="DadosPessoais">
@@ -60,10 +60,11 @@ include('verificarlogin.php');
 						<input class="coluna1-2"type="text" name="sobrenome" placeholder="Sobrenome aquí" maxlength="20">
 						<input class="coluna1-3"type="text" name="cpf" placeholder="CPF aquí" maxlength="11">
 						<input class="coluna2-1"type="text" name="datanasc" placeholder="Data de Nascimento aquí">
-						<input class="coluna2-2"type="text" name="telefone" placeholder="Telefone aquí" maxlength="12">
-						<input class="coluna2-3"type="email" name="email" placeholder="E-mail aquí" >
-						<input class="coluna3-1"type="login" name="login" placeholder="Login aquí" >
-						<input class="coluna3-2"type="password" name="senha" placeholder="senha aquí"maxlength="10">
+						<input class="coluna2-2"type="text" name="sexo" placeholder="Sexo M / F" maxlength="12">
+						<input class="coluna2-3"type="text" name="telefone" placeholder="Telefone aquí" maxlength="12">
+						<input class="coluna3-1"type="email" name="email" placeholder="E-mail aquí" >
+						<input class="coluna3-2"type="login" name="login" placeholder="Login aquí" >
+						<input class="coluna3-3"type="password" name="senha" placeholder="senha aquí"maxlength="10">
 
 						</fieldset>
 
@@ -76,8 +77,8 @@ include('verificarlogin.php');
 							
                             <select name="selectcargo"class="coluna1-1" style="cursor:pointer;">
 
-                                    <option value="">Selecione o Cargo</option>
-                                  <option value="Administrador">Administrador</option> 
+                                  <option value="">Selecione o Cargo</option>
+                                  <option value="ADM-01">Administrador</option> 
                                   <option value="Atendente">Atendente</option> 
                                   <option value="Entregador">Entregador</option>
                                   <option value="Cozinheiro">Cozinheiro</option>
