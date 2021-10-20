@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('conexao.php');
 include('verificarlogin.php');
 ?>
 <!DOCTYPE html>
@@ -125,6 +126,29 @@ include('verificarlogin.php');
 						<fieldset class="fieldset"><legend>Dados Pessoais</legend>
 							<select class="coluna1-1" style="cursor:pointer;">
 								<option>Selecione o Funcionário</option>
+								<?php
+									$resultado_func="SELECT id_conta,id_access FROM Conta WHERE id_access BETWEEN 1 AND 4 ";
+									$busca_idfunc=mysqli_query($conexao,$resultado_func);
+									while($contador=mysqli_fetch_assoc($busca_idfunc)) {?>
+									<option value="<?php echo $contador['id_conta'];?>">
+								
+										<?php
+										$resultado_nome="SELECT nome,sobrenome from Usuario WHERE id_usuario='{$contador['id_conta']}'";
+										$nomefunc=mysqli_query($conexao,$resultado_nome);
+										$nome=mysqli_fetch_assoc($nomefunc);
+										echo $nome['nome'];echo" "; echo$nome['sobrenome'];
+										?>
+								
+									</option>
+										<?php
+										}
+										?>
+
+
+									
+
+								
+
 							</select>
 							<label id="buscanome"class="coluna1-2">Nome:</label>
 							<label id="buscasobrenome"class="coluna1-3">Sobrenome:</label>
