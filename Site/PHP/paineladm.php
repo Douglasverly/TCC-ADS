@@ -3,6 +3,8 @@ session_start();
 include('conexao.php');
 include('verificarlogin.php');
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,12 +121,12 @@ include('verificarlogin.php');
 		<div class="janela" id="BusFuncionario">
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Buscar Funcionário</p>
-				<form action="exemplo.php" method="POST">
+				<form action="preenchefunc.php" method="POST">
 
 					
 			<div id="DadosPessoais">
 						<fieldset class="fieldset"><legend>Dados Pessoais</legend>
-							<select class="coluna1-1" style="cursor:pointer;">
+							<select class="coluna1-1" style="cursor:pointer;"name="selectusuario">
 								<option>Selecione o Funcionário</option>
 								<?php
 									$resultado_func="SELECT id_conta,id_access FROM Conta WHERE id_access BETWEEN 1 AND 4 ";
@@ -150,16 +152,17 @@ include('verificarlogin.php');
 								
 
 							</select>
-							<label id="buscanome"class="coluna1-2">Nome:</label>
-							<label id="buscasobrenome"class="coluna1-3">Sobrenome:</label>
+
+							<label id="buscanome"class="coluna1-2"><?php echo ($_SESSION['nomefunc']); ?></label>
+							<label id="buscasobrenome"class="coluna1-3"><?php echo ($_SESSION['sobrenome']); ?></label>
 
 							<button type="submit" id="buscafuncionario" class="coluna2-1">Buscar</button>
 
-							<label id="buscacpf"class="coluna2-2">CPF:</label>
-							<label id="buscadata"class="coluna2-3">Nasc:</label>
-							<label id="buscatelefone"class="coluna3-1">Tel:</label>
-							<label id="buscaemail"class="coluna3-2">E-mail:</label>
-							<label id="buscalogin"class="coluna3-3">Login:</label>
+							<label id="buscacpf"class="coluna2-2"><?php echo ($_SESSION['cpf']); ?></label>
+							<label id="buscadata"class="coluna2-3"><?php echo ($_SESSION['dt_nasc']); ?></label>
+							<label id="buscatelefone"class="coluna3-1"><?php echo ($_SESSION['telefone']); ?></label>
+							<label id="buscaemail"class="coluna3-2"><?php echo ($_SESSION['email']); ?></label>
+							<label id="buscalogin"class="coluna3-3"><?php echo ($_SESSION['login']); ?></label>
 
 						</fieldset>
 
@@ -567,7 +570,7 @@ include('verificarlogin.php');
 	<div id="painel">
 
 		<div id="boasvindas">
-		<label>Bem Vindo(a),<?php echo($_SESSION['nome']) ?> !</label>
+		<label>Bem Vindo(a),<?php echo($_SESSION['nome']); ?> !</label>
 		</div>
 		<a href="logout.php">Deslogar!</a>
 
@@ -627,7 +630,6 @@ include('verificarlogin.php');
 
 </body>
 </html>
-
 
 
 
