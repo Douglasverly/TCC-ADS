@@ -107,7 +107,6 @@ class Funcionario{
      $id_cargo=$this->id_cargo;
 
 
-
      $SQL="INSERT INTO Usuario (id_usuario,nome,sobrenome,dt_nasc,sexo,telefone,email,dt_admissao,id_cargo)
       values('{$id_usuario}',
       '{$nome}',
@@ -127,6 +126,7 @@ class Funcionario{
     
     
     }
+    public function buscarfun(){}
 
 }
 
@@ -203,6 +203,41 @@ private $id_conta;
 private $login;
 private $senha;
 private $id_access;
+
+
+public function getidconta(){return $this-> id_conta;}
+public function getlogin(){return $this-> login;}
+public function getsenha(){return $this-> senha;}
+public function getidaccess(){return $this-> is_access;}
+
+public function setidconta($id_conta){$this->id_conta=$id_conta;}
+public function setlogin($login){$this->login=$login;}
+public function setsenha($senha){$this->senha=$senha;}
+public function setidaccess($id_access){$this->id_access=$id_access;}
+
+public function inserirconta(){
+    $id_conta=$this->id_conta;
+    $login=$this->login;
+    $senha=$this->senha;
+    $id_access=$this->id_access;
+
+    $SQL="INSERT INTO Conta values(
+        '{$id_conta}',
+        '{$login}',
+         md5('{$senha}'),
+        '{$id_access}')";
+
+        include('conexao.php');
+
+        mysqli_query($conexao,$SQL) or die ("Erro ao Cadastrar  ".mysqli_error($conexao));
+
+        mysqli_close($conexao);
+}
+
+
+
+
+
 
 
 }

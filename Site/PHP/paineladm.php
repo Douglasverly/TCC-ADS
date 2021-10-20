@@ -79,8 +79,8 @@ include('verificarlogin.php');
 
                                   <option value="">Selecione o Cargo</option>
                                   <option value="ADM-01">Administrador</option> 
-                                  <option value="Atendente">Atendente</option> 
-                                  <option value="Entregador">Entregador</option>
+                                  <option value="ATD-01">Atendente</option> 
+                                  <option value="ENT-01">Entregador</option>
                                   <option value="Cozinheiro">Cozinheiro</option>
                             </select>
 							<input class="coluna2-1"type="text" name="dtadmissao"placeholder="Data Admissão aquí">
