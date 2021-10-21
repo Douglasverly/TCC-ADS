@@ -1,5 +1,5 @@
 <?php
-session_start();
+error_reporting(0);
 include('conexao.php');
 include('verificarlogin.php');
 ?>
@@ -25,7 +25,7 @@ include('verificarlogin.php');
 <input class="botaocontrole"type="radio" name="menu1" id="itemCalc-Lucro">
 
 <input class="botaocontrole"type="radio" name="menu1" id="CFuncionario">
-<input class="botaocontrole"type="radio" name="menu1" id="RFuncionario">
+<input class="botaocontrole"type="radio" name="menu1" id="RFuncionario" <?php if($_SESSION['nomefunc'] != FALSE){?>checked<?PHP } ?>>
 <input class="botaocontrole"type="radio" name="menu1" id="UFuncionario">
 <input class="botaocontrole"type="radio" name="menu1" id="DFuncionario">
 
@@ -119,6 +119,9 @@ include('verificarlogin.php');
 
 
 		<div class="janela" id="BusFuncionario">
+
+
+
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Buscar Funcionário</p>
 				<form action="preenchefunc.php" method="POST">
@@ -153,6 +156,8 @@ include('verificarlogin.php');
 
 							</select>
 
+							<?php 
+							if($_SESSION['nomefunc'] != FALSE) { ?>			
 							<label id="buscanome"class="coluna1-2"><?php echo ($_SESSION['nomefunc']); ?></label>
 							<label id="buscasobrenome"class="coluna1-3"><?php echo ($_SESSION['sobrenome']); ?></label>
 
@@ -172,9 +177,9 @@ include('verificarlogin.php');
 			<div id="DadosCargo">
 							<fieldset class="fieldset"><legend>Dados Cargo</legend>
 
-								<label class="coluna1-1">Cargo:</label>
-								<label class="coluna2-1">Salário:</label>
-								<label class="coluna3-1">Data de Admissão:</label>
+								<label class="coluna1-1"><?php echo ($_SESSION['cargo']); ?></label>
+								<label class="coluna2-1"><?php echo ($_SESSION['salario']); ?></label>
+								<label class="coluna3-1"><?php echo ($_SESSION['dt_admissao']); ?></label>
 
 
 							</fieldset>
@@ -185,13 +190,67 @@ include('verificarlogin.php');
 			<div id="Endereco">
 							<fieldset class="fieldset"><legend>Endereço</legend>
 
-								<label class="coluna1-1">Login:</label>
-								<label class="coluna1-2">Login:</label>
-								<label class="coluna1-3">Login:</label>
-								<label class="coluna2-1">Login:</label>
-								<label class="coluna2-2">Login:</label>
-								<label class="coluna2-3">Login:</label>
-								<label class="coluna3-1">Login:</label>
+								<label class="coluna1-1"><?php echo ($_SESSION['cep']); ?></label>
+								<label class="coluna1-2"><?php echo ($_SESSION['rua']); ?></label>
+								<label class="coluna1-3"><?php echo ($_SESSION['numero']); ?></label>
+								<label class="coluna2-1"><?php echo ($_SESSION['complemento']); ?></label>
+								<label class="coluna2-2"><?php echo ($_SESSION['cidade']); ?></label>
+								<label class="coluna2-3"><?php echo ($_SESSION['bairro']); ?></label>
+								<label class="coluna3-1"><?php echo ($_SESSION['uf']); ?></label>
+
+							</fieldset>
+
+			</div>
+					
+
+
+				</form>
+
+			</div>	
+			<?php session_destroy(); }
+			else{
+			 ?>
+		
+
+							<label id="buscanome"class="coluna1-2">Nome</label>
+							<label id="buscasobrenome"class="coluna1-3">Sobrenome</label>
+
+							<button type="submit" id="buscafuncionario" class="coluna2-1">Buscar</button>
+
+							<label id="buscacpf"class="coluna2-2">CPF</label>
+							<label id="buscadata"class="coluna2-3">Data Nascimento</label>
+							<label id="buscatelefone"class="coluna3-1">Telefone</label>
+							<label id="buscaemail"class="coluna3-2">E-Mail</label>
+							<label id="buscalogin"class="coluna3-3">Login</label>
+
+						</fieldset>
+
+			</div>
+
+					
+			<div id="DadosCargo">
+							<fieldset class="fieldset"><legend>Dados Cargo</legend>
+
+								<label class="coluna1-1">Cargo</label>
+								<label class="coluna2-1">Salário</label>
+								<label class="coluna3-1">Data Admissão</label>
+
+
+							</fieldset>
+
+			</div>
+					
+					
+			<div id="Endereco">
+							<fieldset class="fieldset"><legend>Endereço</legend>
+
+								<label class="coluna1-1">CEP</label>
+								<label class="coluna1-2">Rua</label>
+								<label class="coluna1-3">N°</label>
+								<label class="coluna2-1">Complemento</label>
+								<label class="coluna2-2">Cidade</label>
+								<label class="coluna2-3">Bairro</label>
+								<label class="coluna3-1">UF</label>
 
 							</fieldset>
 
@@ -203,7 +262,20 @@ include('verificarlogin.php');
 
 			</div>	
 
-		
+				<?php }?>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		<div class="janela" id="AtuFuncionario">
 			<div class="bordatop"><label for="default">X</label></div>
@@ -622,7 +694,7 @@ include('verificarlogin.php');
 
 <div id="final">
 	 
-	&#169; 2021 Helf Food
+	&#169; 2021 Healthy Food
 
 </div>
 

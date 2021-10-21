@@ -1,4 +1,7 @@
 <?php
+error_reporting(0);
+
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +17,7 @@
 </head>
 <body>
 	 
-	<input type="checkbox" class="check" id="user"> 
+	<input type="checkbox" class="check" id="user" <?php if($_SESSION['erro_login']=="sim") {?> checked <?PHP } ?>> 
 	
 
 	<input type="radio" class="check" name="select" id="Inicio">
@@ -42,8 +45,9 @@
 			<label for="user"id="closelog">X</label>
 				<div id="loginform">
 					<div id="minilogo"></div>
+					<?php if($_SESSION['erro_login']!= FALSE) {?> <p style="color: red;font-weight:800;">Login ou Senha Incorretos!</p> <?PHP } session_destroy();?>
 					<form action="../Site/PHP/login.php" method="post">
-
+					
 						<label for="">Usuário</label>
 						<input type="text" name="login" id="login"maxlength="15" required="true">
 						<label for="">Senha</label>
