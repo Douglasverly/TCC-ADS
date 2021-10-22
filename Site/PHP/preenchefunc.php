@@ -48,6 +48,10 @@ $_SESSION['cidade']=$resultadoendereco['cidade'];
 $_SESSION['bairro']=$resultadoendereco['bairro'];
 $_SESSION['uf']=$resultadoendereco['uf'];
 
+
+$_SESSION['checabusca']= true;
+
+
 header('Location: paineladm.php');
 
 

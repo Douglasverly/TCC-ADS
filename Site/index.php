@@ -13,21 +13,32 @@ session_start();
 	<link rel="manifest" href="/site.webmanifest">
 	<meta charset="utf-8">
 	<title>Healthy Food</title>
-	<link rel="stylesheet" type="text/css" href="CSS/estilo.css">
+	<link rel="stylesheet" type="text/css" href="CSS/estilopaineladm.css">
 </head>
 <body>
-	 
-	<input type="checkbox" class="check" id="user" <?php if($_SESSION['erro_login']=="sim") {?> checked <?PHP } ?>> 
-	
+	<script type="text/javascript">
+		var contar=1;
+		setInterval(function(){
+			document.getElementById('slide'+contar).checked=true;
+			contar++;
+			if(contar>5){
+				contar=1;
+			}
+		},6000);
 
-	<input type="radio" class="check" name="select" id="Inicio">
+	</script>
+
+	<input type="checkbox" class="check" id="user" >
+
+
+	<input type="radio" class="check" name="select" id="Inicio" checked>
 	<input type="radio" class="check" name="select" id="Cardapio">
 	<input type="radio" class="check" name="select" id="Contato">
 
 
 <div id="topo">
 	<div id="logo"></div>
-</div>	
+</div>
 
 <nav id="menu">
 	<ul >
@@ -41,13 +52,56 @@ session_start();
 <div id="centro">
 
 	<div id="cintro">
+		<div id="inicio">
+			<div class="slides">
+				<input class="check"type="radio" name="slide" id="slide1"checked>
+				<input class="check"type="radio" name="slide" id="slide2">
+				<input class="check"type="radio" name="slide" id="slide3">
+				<input class="check"type="radio" name="slide" id="slide4">
+				<input class="check"type="radio" name="slide" id="slide5">
+
+				<div class="slide s1">
+					<img src="img/slide/img1.jpg" >
+				</div>
+
+				<div class="slide">
+					<img src="img/slide/img2.jpg" >
+				</div>
+				<div class="slide">
+					<img src="img/slide/img3.jpg" >
+				</div>
+				<div class="slide">
+					<img src="img/slide/img4.jpg" >
+				</div>
+				<div class="slide">
+					<img src="img/slide/img5.jpg" >
+				</div>
+
+
+			</div>
+			<div class="navigation">
+				<label class="bar" id="nav-1"for="slide1"></label>
+				<label class="bar" id="nav-2"for="slide2"></label>
+				<label class="bar" id="nav-3"for="slide3"></label>
+				<label class="bar" id="nav-4"for="slide4"></label>
+				<label class="bar" id="nav-5"for="slide5"></label>
+			</div>
+
+
+
+
+		</div>
+
+
+
+
 		<div id="logindiv">
 			<label for="user"id="closelog">X</label>
 				<div id="loginform">
 					<div id="minilogo"></div>
 					<?php if($_SESSION['erro_login']!= FALSE) {?> <p style="color: red;font-weight:800;">Login ou Senha Incorretos!</p> <?PHP } session_destroy();?>
 					<form action="../Site/PHP/login.php" method="post">
-					
+
 						<label for="">Usuário</label>
 						<input type="text" name="login" id="login"maxlength="15" required="true">
 						<label for="">Senha</label>
@@ -59,11 +113,11 @@ session_start();
 
 				</div>
 		</div>
-		
+
 		<div id="contatodiv">
 			<p> &nbsp; Se desejar entrar em contato conosco para sanar alguma dúvida você tem as seguintes opções:</p>
 
-			<label >Telefone: (21)xxxx-xxxx</label>	
+			<label >Telefone: (21)xxxx-xxxx</label>
 			<label >Whatsapp: (21)xxxxx-xxxx</label>
 			<label >E-mail: contato@healthyfood.com</label>
 
@@ -76,12 +130,13 @@ session_start();
 </div>
 
 <div id="final">
-	
 
-	<a href="#">Local de Cobertura</a> <a href="#">Endereço</a> <a href="#"> Whatsapp</a> 
+
+	<a href="#">Local de Cobertura</a> <a href="#">Endereço</a> <a href="#"> Whatsapp</a>
 	&#169; 2021 Helf Food
 
 </div>
+
 </body>
 
 </html>

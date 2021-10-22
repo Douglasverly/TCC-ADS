@@ -4,7 +4,6 @@ include('conexao.php');
 include('verificarlogin.php');
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,8 +24,8 @@ include('verificarlogin.php');
 <input class="botaocontrole"type="radio" name="menu1" id="itemCalc-Lucro">
 
 <input class="botaocontrole"type="radio" name="menu1" id="CFuncionario">
-<input class="botaocontrole"type="radio" name="menu1" id="RFuncionario" <?php if($_SESSION['nomefunc'] != FALSE){?>checked<?PHP } ?>>
-<input class="botaocontrole"type="radio" name="menu1" id="UFuncionario">
+<input class="botaocontrole"type="radio" name="menu1" id="RFuncionario" <?php if($_SESSION['checabusca'] != FALSE){?>checked<?PHP } ?>>
+<input class="botaocontrole"type="radio" name="menu1" id="UFuncionario" <?php if($_SESSION['atualizafunc'] == 'atualizafunc'){?>checked<?PHP } ?>>
 <input class="botaocontrole"type="radio" name="menu1" id="DFuncionario">
 
 
@@ -124,6 +123,8 @@ include('verificarlogin.php');
 
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Buscar Funcionário</p>
+			<?php 
+							if($_SESSION['checabusca'] != FALSE ) { ?>	
 				<form action="preenchefunc.php" method="POST">
 
 					
@@ -156,8 +157,7 @@ include('verificarlogin.php');
 
 							</select>
 
-							<?php 
-							if($_SESSION['nomefunc'] != FALSE) { ?>			
+									
 							<label id="buscanome"class="coluna1-2"><?php echo ($_SESSION['nomefunc']); ?></label>
 							<label id="buscasobrenome"class="coluna1-3"><?php echo ($_SESSION['sobrenome']); ?></label>
 
@@ -207,9 +207,61 @@ include('verificarlogin.php');
 				</form>
 
 			</div>	
-			<?php session_destroy(); }
+			<?php 
+	$_SESSION['nomefunc']=null;
+	$_SESSION['sobrenome']=null;
+	$_SESSION['cpf']=null;
+	$_SESSION['dt_nasc']=null;
+	$_SESSION['telefone']=null;
+	$_SESSION['email']=null;
+	$_SESSION['login']=null;
+	$_SESSION['cargo']=null;
+	$_SESSION['salario']=null;
+	$_SESSION['dt_admissao']=null;
+	$_SESSION['cep']=null;
+	$_SESSION['rua']=null;
+	$_SESSION['numero']=null;
+	$_SESSION['complemento']=null;
+	$_SESSION['cidade']=null;
+	$_SESSION['bairro']=null;
+	$_SESSION['uf']=null;
+	$_SESSION['checabusca']=null;
+
+									
+			 }
 			else{
 			 ?>
+			 		<form action="preenchefunc.php" method="POST">
+
+					
+				<div id="DadosPessoais">
+					<fieldset class="fieldset"><legend>Dados Pessoais</legend>
+				<select class="coluna1-1" style="cursor:pointer;"name="selectusuario">
+					<option>Selecione o Funcionário</option>
+					<?php
+						$resultado_func="SELECT id_conta,id_access FROM Conta WHERE id_access BETWEEN 1 AND 4 ";
+						$busca_idfunc=mysqli_query($conexao,$resultado_func);
+						while($contador=mysqli_fetch_assoc($busca_idfunc)) {?>
+						<option value="<?php echo $contador['id_conta'];?>">
+					
+							<?php
+							$resultado_nome="SELECT nome,sobrenome from Usuario WHERE id_usuario='{$contador['id_conta']}'";
+							$nomefunc=mysqli_query($conexao,$resultado_nome);
+							$nome=mysqli_fetch_assoc($nomefunc);
+							echo $nome['nome'];echo" "; echo$nome['sobrenome'];
+							?>
+					
+						</option>
+							<?php
+							}
+							?>
+
+
+						
+
+					
+
+				</select>
 		
 
 							<label id="buscanome"class="coluna1-2">Nome</label>
@@ -269,33 +321,61 @@ include('verificarlogin.php');
 
 
 
-
-
-
-
-
-
-
-
 		<div class="janela" id="AtuFuncionario">
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Atualizar Funcionário</p>
-				<form action="exemplo.php" method="POST">
+							<?php if($_SESSION['alerte'] == "certo"){?>
+								<script>alert("Dados Atualizados!")</script> 
+
+							<?php $_SESSION['alerte']=null;}?>
+
+
+							<?php if($_SESSION['alerte']=="erro"){?>
+								<script>alert("erro ao atualizar.")</script> 
+								<?php $_SESSION['alerte']=null; } ?>
+
+			<?php
+			if($_SESSION['atualizafunc']!='atualizafunc'){
+				?>
+
+				<form action="preencheatualizafunc.php" method="POST">
 
 					
 			<div id="DadosPessoais">
 						<fieldset class="fieldset"><legend>Dados Pessoais</legend>
 
-						<select class="coluna1-1"><option>Selecionar Funcionário</option></select>
+						<select class="coluna1-1"style="cursor:pointer;"name="selectusuario"><option>Selecionar Funcionário</option>
+							
+							<?php
+									$resultado_func="SELECT id_conta,id_access FROM Conta WHERE id_access BETWEEN 1 AND 4 ";
+									$busca_idfunc=mysqli_query($conexao,$resultado_func);
+									while($contador=mysqli_fetch_assoc($busca_idfunc)) {?>
+									<option value="<?php echo $contador['id_conta'];?>">
+								
+										<?php
+										$resultado_nome="SELECT nome,sobrenome from Usuario WHERE id_usuario='{$contador['id_conta']}'";
+										$nomefunc=mysqli_query($conexao,$resultado_nome);
+										$nome=mysqli_fetch_assoc($nomefunc);
+										echo $nome['nome'];echo" "; echo$nome['sobrenome'];
+										?>
+								
+									</option>
+										<?php
+										}
+										?>
+					
+					
+						</select>
 
-						<a class="coluna2-1" id="buscafuncionario" href="testar.php" style="font-size: 13px;">Buscar</a>
+						<button type="submit" id="buscafuncionario" class="coluna2-1">Buscar</button>
+						<label style="display: none;" name="atualizafunc" value="atualizafunc"></label>
 
-						<input class="coluna1-2" type="text" name="nome" placeholder="Nome aquí" maxlength="10">
+						<input class="coluna1-2" type="text" name="nome" placeholder="Nome aquí" maxlength="10" >
 						<input class="coluna1-3"type="text" name="sobrenome" placeholder="Sobrenome aquí" maxlength="20">
 						<input class="coluna2-2"type="text" name="cpf" placeholder="CPF aquí" maxlength="11">
 						<input class="coluna2-3"type="text" name="datanasc" placeholder="Data de Nascimento aquí">
 						<input class="coluna3-2"type="text" name="telefone" placeholder="Telefone aquí" maxlength="12">
-						<input class="coluna3-3"type="email" name="email" placeholder="E-mail aquí" >
+						<input class="coluna3-3"type="email" name="email" placeholder="E-mail aquí">
 
 						</fieldset>
 
@@ -335,8 +415,75 @@ include('verificarlogin.php');
 
 
 				</form>
+				
 
-			</div>	
+
+			<?php
+			}
+			?>
+
+			<?php 
+			if($_SESSION['atualizafunc']=='atualizafunc') { ?>
+
+				<form action="atualizafunc.php" method="POST">
+
+					
+				<div id="DadosPessoais">
+						<fieldset class="fieldset"><legend>Dados Pessoais</legend>
+
+						<label style="display: none;" name="atualizafunc" value="atualizafunc"></label>
+						<input class="coluna1-2" type="text" name="nome" placeholder="Nome aquí" maxlength="10" value="<?php echo ($_SESSION['nomefunc_at']); ?>">
+						<input class="coluna1-3"type="text" name="sobrenome" placeholder="Sobrenome aquí" maxlength="20"value="<?php echo ($_SESSION['sobrenome_at']); ?>">
+						<label class="coluna2-2"name="cpf" placeholder="CPF aquí" maxlength="11"style="font-size:12px;"><?php echo ($_SESSION['cpf_at']); ?></label>
+						<input class="coluna2-3"type="text" name="datanasc" placeholder="Data de Nascimento aquí"value="<?php echo ($_SESSION['dt_nasc_at']); ?>">
+						<input class="coluna3-2"type="text" name="telefone" placeholder="Telefone aquí" maxlength="12"value="<?php echo ($_SESSION['telefone_at']); ?>">
+						<input class="coluna3-3"type="email" name="email" placeholder="E-mail aquí"value="<?php echo ($_SESSION['email_at']); ?>" >
+
+						</fieldset>
+
+				</div>
+
+					
+				<div id="DadosCargo">
+							<fieldset class="fieldset"><legend>Dados Cargo</legend>
+
+							<input class="coluna1-1"type="text" name="cargo"placeholder="Cargo aquí"value="<?php echo ($_SESSION['cargo_at']); ?>">
+							<input class="coluna2-1"type="text" name="salario"placeholder="Salário aquí"value="<?php echo ($_SESSION['salario_at']); ?>">
+							<input class="coluna3-1"type="text" name="dtadmissao"placeholder="Data Admissão aquí"value="<?php echo ($_SESSION['dt_admissao_at']); ?>">
+
+							</fieldset>
+
+				</div>
+					
+
+					
+				<div id="Endereco">
+							<fieldset class="fieldset"><legend>Endereço</legend>
+
+							<input class="coluna1-1"type="text" name="cep"placeholder="CEP aquí"value="<?php echo ($_SESSION['cep_at']); ?>">
+							<input class="coluna1-2"type="text" name="rua"placeholder="Rua aquí"value="<?php echo ($_SESSION['rua_at']); ?>">
+							<input class="coluna1-3"type="text" name="numero"placeholder="N° aquí"value="<?php echo ($_SESSION['nomnumero_at']); ?>">
+							<input class="coluna2-1"type="text" name="complemento"placeholder="Complemento aquí"value="<?php echo ($_SESSION['complemento_at']); ?>">
+							<input class="coluna2-2"type="text" name="cidade"placeholder="Cidade aquí"value="<?php echo ($_SESSION['cidade_at']); ?>">
+							<input class="coluna2-3"type="text" name="bairro"placeholder="Bairro aquí"value="<?php echo ($_SESSION['bairro_at']); ?>">
+							<input class="coluna3-1"type="text" name="uf"placeholder="UF aquí"value="<?php echo ($_SESSION['uf_at']); ?>">
+							
+							<button type="submit" class="coluna3-3" id="salvarFucionario">Salvar</button>
+
+							</fieldset>
+
+				</div>
+					
+
+
+				</form>
+
+			<?php $_SESSION['atualizafunc']=null;}
+			?>
+
+
+
+				</div>	
 
 
 		<div class="janela" id="ExcFuncionario">
@@ -683,10 +830,6 @@ include('verificarlogin.php');
 
 	</div>
 
-
-
-
-
 </div>
 
 
@@ -702,6 +845,7 @@ include('verificarlogin.php');
 
 </body>
 </html>
+
 
 
 
