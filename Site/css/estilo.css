@@ -243,9 +243,13 @@ body::-webkit-scrollbar-thumb {
 
 
 #Contato:checked ~ #centro #cintro #contatodiv{display: flex;}
-#Contato:checked ~ #menu ul li #contatoLB{background-color:#a7ffae;}
-#Cardapio:checked ~ #menu ul li #cardapioLB{background-color:#a7ffae;}
-#Inicio:checked ~ #menu ul li #inicioLB{background-color:#a7ffae;}
+
+#Contato:checked ~ #menu ul li #contatoLB::before{height: 300%;}
+
+#Cardapio:checked ~ #menu ul li #cardapioLB::before{height: 300%;}
+
+#Inicio:checked ~ #menu ul li #inicioLB::before{height: 300%;}
+
 #Inicio:checked ~ #centro #cintro #inicio{display: inline-block;}
 
 
