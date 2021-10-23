@@ -117,13 +117,18 @@ body::-webkit-scrollbar-thumb {
 		background-position: top;
 		background-size: 200px;
 	}
-#menu ul li{display: inline;}
+#menu ul li{display: inline-flex;}
 
-#menu ul li label{	margin: 0px;	
-					padding: 25px;
+#menu ul li label{	margin: 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;	
+	text-align: center;
+					width: 120px;
+					height: 80px;	
 					cursor: pointer;
 					background-color: rgba(0, 0, 0, 0.07);
-					display: inline-block;
 					text-decoration: none;
 					color: black;
 					z-index: 100;
