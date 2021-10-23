@@ -1,35 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-
 *{margin: 0;
 	padding: 0;
 	font-family: 'Raleway', sans-serif;}
 
 body{margin: 0;
-	display: felx;
 	padding: 0;
 	width: 100vw;
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	background-color:rgb(245,255,245);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	background-image: url("../img/fundo2.png");
-	position: absolute;}
+	background-color: #F7FDF0;}
 body::-webkit-scrollbar {
 	width: 8px;
-	background-color: rgb(0, 0, 0); /* or add it to the track */
+	height: 8px;
+	background-color: rgba(0, 0, 0,0.0); /* or add it to the track */
 	  }
 body::-webkit-scrollbar-thumb {
-	border-radius: 20px;
-    background: rgb(68, 68, 68);
-}
-
+	width: 4px;
+    background: rgb(0, 0, 0);
+	}	
 
 #topo{margin: 0;
-	padding: 0;
-	background-color:#f5ffe6;
+		padding: 0;
+		background-color:#f5ffe6;
 		background-image:url("../img/fundo.png") ;
 		background-size: contain;
 		background-position: center;
@@ -52,26 +45,172 @@ body::-webkit-scrollbar-thumb {
 	background-repeat: no-repeat;}
 
 
-#centro{
-	margin: 0;
-	padding: 0;
+
+.central{
+		margin: 0;
+		padding: 0;
 		width: 100vw;
 		height: 600px;
 		display: flex;
+		justify-content: center;
 		flex-direction: row;
 		align-items: center;
-		justify-content: center;
-	}
+	
+		}
 
-#cintro{margin: 0;
-		padding: 0; border-left:2px solid rgba(0, 0, 0, 0.2);
-		border-right:3px solid rgba(0, 0, 0, 0.2);
+
+.central #conteudo{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-image: url("../img/fundopainel.png");
+	background-size: cover;
+	background-position: center;
+}
+
+.central #painel{
 		display: flex;
+		justify-content: top;
 		flex-direction: column;
-		justify-content: center;
 		align-items: center;
-		width: 80%;
-		height: 500px;}
+		border-left: 4px solid rgb(143,188,143);
+		height: 100%;
+		width: 300px;
+		background-color:#f5ffe6;
+		background-image:url("../img/fundo.png") ;
+		background-size: contain;
+		background-position: top;
+}
+
+.central #painel #boasvindas{display: flex;
+								flex-direction: row;
+								justify-content: center;}
+
+
+.central #painel #boasvindas label{ display: flex;
+									height: 50px;
+									flex-direction: row;
+									align-items: center;
+									justify-content: center;}
+
+
+.central #painel #menu{width: 100%;height: 100%;display: flex;}
+
+.central #painel #menu ul{width: 100%;list-style: none;}
+
+
+.itemmenu{	display: flex;
+		 	font-weight: 900;
+			background-color:rgb(173,255,47);
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 50px;
+			transition: background-color 0.6s;
+			margin-top: 5px;
+			cursor: pointer;}
+.itemmenu:hover{background-color: rgb(255,215,0);}
+
+.itemmenu2{	display: flex;
+		 	font-weight: 900;
+			background-color:rgb(173,255,47);
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 50px;
+			transition: background-color 0.6s;
+			border-top: 1px solid black;
+			cursor: pointer;}			
+.itemmenu2:hover{background-color: rgb(255,215,0);}
+
+.submenu{	width: 100%;list-style: none;display: none;}
+
+
+.janela{display: none;
+		width: 800px;
+		border: 1px solid rgb(173,255,47);
+		margin: auto;
+		background-color: white;
+		box-shadow: 3px 3px 5px rgb(0,0,0) ;
+		height: 90%;}
+
+.bordatop{width: 100%;
+			overflow: hidden;
+			height: 4%;
+			background-color:rgb(173,255,47);}	
+
+.bordatop label{margin-left: 780px;
+				padding: 3px;
+				display: flex;
+				flex-direction: column;
+				cursor: pointer;
+				align-items: center;
+				justify-content: center;
+				transition: background-color 0.5s;}	
+
+.bordatop label:hover{background-color:red;}				
+.janela p{text-align: center;font-size: 30px;margin-bottom: 20px;text-decoration: underline;text-decoration-color: rgb(173,255,47);}
+
+
+.central #conteudo .janela form{width: 100%;
+								height: 100%;}
+
+.central #conteudo .janela #DadosPessoais{	display: flex;
+											width: 80%;
+											height: 30%;
+											margin-top: 10px;
+											margin: auto;}
+
+
+.central #conteudo .janela #DadosCargo{	width: 80%;
+										height: 10%;
+										margin: auto;
+										margin-top: 10px;
+										display: flex;
+										}
+
+
+.central #conteudo .janela #Endereco{width: 80%;
+									margin: auto;
+									height: 30%;
+									margin-top: 10px;
+									display: flex;}
+
+
+.fieldset{	width: 100%;
+			height: 100%;
+			border-radius: 10px;
+			font-weight: 600;
+			border-color: rgb(173,255,47);
+			font-size: 10px;}
+
+
+
+
+.coluna1-1{margin-top: 25px;margin-left: 20px; border: none; border-bottom: 2px solid rgb(173,255,47);position: absolute;text-align: center;width: 160px;background-color: rgba(0, 0, 0, 0.0);cursor: text;}
+.coluna1-2{margin-top: 65px;margin-left: 20px; border: none; border-bottom: 2px solid rgb(173,255,47);position: absolute;text-align: center;width: 160px;background-color: rgba(0, 0, 0, 0.0);cursor: text;}
+.coluna1-3{margin-top: 110px;margin-left: 20px; border: none; border-bottom: 2px solid rgb(173,255,47);position: absolute;text-align: center;width: 160px;background-color: rgba(0, 0, 0, 0.0);cursor: text;}
+
+.coluna2-1{margin-top: 25px;margin-left: 230px; border: none; border-bottom: 2px solid rgb(173,255,47);position: absolute;text-align: center;width: 160px;background-color: rgba(0, 0, 0, 0.0);cursor: text;}
+.coluna2-2{margin-top: 65px;margin-left: 230px; border: none; border-bottom: 2px solid rgb(173,255,47);position: absolute;text-align: center;width: 160px;background-color: rgba(0, 0, 0, 0.0);cursor: text;}
+.coluna2-3{margin-top: 110px;margin-left: 230px; border: none; border-bottom: 2px solid rgb(173,255,47);position: absolute;text-align: center;width: 160px;background-color: rgba(0, 0, 0, 0.0);cursor: text;}
+
+.coluna3-1{margin-top: 25px;margin-left: 450px; border: none; border-bottom: 2px solid rgb(173,255,47);position: absolute;text-align: center;width: 160px;background-color: rgba(0, 0, 0, 0.0);cursor: text;}
+.coluna3-2{margin-top: 65px;margin-left: 450px; border: none; border-bottom: 2px solid rgb(173,255,47);position: absolute;text-align: center;width: 160px;background-color: rgba(0, 0, 0, 0.0);cursor: text;}
+.coluna3-3{margin-top: 110px;margin-left: 450px; border: none; border-bottom: 2px solid rgb(173,255,47);position: absolute;text-align: center;width: 160px;background-color: rgba(0, 0, 0, 0.0);cursor: text;}
+
+
+
+#salvarFucionario{border: 1px solid rgb(173,255,47);height: 30px;margin-top: 90px;font-weight: 600;background-color: rgb(173,255,47);cursor: pointer;transition: background-color 0.7s;}
+#buscafuncionario{color: black;border: 1px solid rgb(173,255,47);height: 25px;margin-top: 20px;font-weight: 600;background-color: rgb(173,255,47);cursor: pointer;transition: background-color 0.7s;text-decoration: none;text-align: center;display: flex;justify-content: center;align-items: center;}
+
+#salvarFucionario:hover{background-color:rgb(255,215,0);}
+#buscafuncionario:hover{background-color:rgb(255,215,0) ;text-decoration: none;text-align: center;}
+
+
 
 #final{
 	display: flex;
@@ -84,191 +223,57 @@ body::-webkit-scrollbar-thumb {
 		height:150px;
 		text-align: center;
 		font-size: 10px;
+	}		
 
-	}
+.botaocontrole{display: none;}
 
-#final a{padding: 15px;
-		margin:5px;
-	text-decoration: none;
-	color: black;}
+/* CONFIGURAÇÃO DO MENU */
 
-#final a:hover{color: blueviolet;
-					transition:color 0.4s;
-					font-size: 13px;
-					transition: font-size 0.3s; }
+#itemFuncionario:checked~.central #painel #menu ul #sub1{display:inline-block;}
+#itemFuncionario:checked~.central #painel #menu ul li #menuFuncionario{background-color: rgb(255,215,0)}
 
 
+#itemCardapio:checked~.central #painel #menu ul #sub2{display:inline-block;}
+#itemCardapio:checked~.central #painel #menu ul li #menuCardapio{background-color: rgb(255,215,0)}
 
-#menu{align-items: center;
-	flex-direction: column;
-	justify-content: center;
-	display: flex;}
+#itemHistorico:checked~.central #conteudo #BusHistorico{display:inline-block;}
 
-#menu ul{
-		list-style: none;
-		padding: 0;
-		background: #f5ffe6;}
-#menu ul li{display: inline;}
+#itemCalc-Lucro:checked~.central #conteudo #Cal-Lucro{display:inline-block;}
 
-#menu ul li label{padding: 25px; cursor: pointer;
-					display: inline-block;
-					text-decoration: none;
-					color: black;
-					font-weight:1000;}
+/* CONFIGURAÇÃO DAS JANELAS */
 
-#menu ul li  label:hover{cursor: pointer;
-	font-size: 20px;
-	color: #ffffff;
-	background-color:#a7ffae;
-	transition:font-size .4s;}
+#CFuncionario:checked~.central #conteudo #CadFuncionario{display: inline-block;}
 
-.check{display: none;}
+#RFuncionario:checked~.central #conteudo #BusFuncionario{display: inline-block;}
 
-#closelog{z-index: 60;
-			color: rgb(255, 254, 254);
-			display: block;
-			width: 20px;
-			text-align: center;
-			height: 20px;
-			margin-left: 92%;
-			padding: 3.5px;}
+#UFuncionario:checked~.central #conteudo #AtuFuncionario{display: inline-block;}
 
-#closelog:hover{background-color: red;
-				color: black;
-				cursor: pointer;}
+#DFuncionario:checked~.central #conteudo #ExcFuncionario{display: inline-block;}
 
 
-#centro #cintro #logindiv{width: 300px;
-			box-shadow: 6px 4px 2px rgba(0, 0, 0, 0.6);
-			height: 350px;
-			border: 1px solid rgba(0, 0, 0, 0.664);
-			margin: auto;
-			position: absolute;
-			z-index: 50;
-			align-items: center;
-			transition: all;
-			flex-direction:column;
-			display: none;
-			background-color: rgba(0, 0, 0, 0.877); }
+#CCardapio:checked~.central #conteudo #CadCardapio{display: inline-block;}
 
-#user:checked ~ #centro #cintro #logindiv{	display: flex;
-											transition:all .5s;}
+#RCardapio:checked~.central #conteudo #BusCardapio{display: inline-block;}
 
-#centro #cintro #logindiv #minilogo{width: 100%;
-									height: 110px;
-									background-image: url("../img/LOGO.png");
-									background-position: center;
-									background-repeat: no-repeat;
-									background-size: contain;}
+#UCardapio:checked~.central #conteudo #AtuCardapio{display: inline-block;}
 
-
-#centro #cintro #logindiv #loginform{width: 100%;
-										height: 100%;
-										display: flex;
-										flex-direction: column;
-										align-items: center;}
-#centro #cintro #logindiv #loginform form{align-items: center;
-											width: 100%;
-											height: 40%;
-											display: flex;
-											flex-direction: column;
-											align-items: center;
-											padding: 5px;
-											}
-#centro #cintro #logindiv #loginform form label{padding: 10px;color: white;}
-
-#centro #cintro #logindiv #loginform form button{margin-top:10px;width: 50px;height: 30px;
-												border-style: outset;border-color: #a7ffae;
-												font-weight:700;
-												display: block;}
-
-#centro #cintro #logindiv #loginform form button:hover{background-color: #a7ffae;
-														padding: 4px;
-														width: 70px;
-														transition: padding .5s;
-														border-style: outset;
-														border-color: #e6ffe8;
-														font-weight:700;cursor: pointer;}
-
-#centro #cintro #logindiv #loginform p{margin-top: 20px;
-										color:white;
-										font-size: 10px;
-									}
-
-#centro #cintro #logindiv #loginform p a{color: red;}
-
-#centro #cintro #contatodiv{padding: 0;
-							display: none;
-							justify-content: center;
-							flex-direction: column;
-							align-items: center;
-							width: 400px;
-							height: 100%;
-							background-color: rgba(248, 248, 248, 0);
-							z-index: 40;}
-#centro #cintro #contatodiv label{padding: 30px;margin: 0%;}
-#centro #cintro #contatodiv p{font-size: 15px;}
-
-
-#Contato:checked ~ #centro #cintro #contatodiv{display: flex;}
-#Contato:checked ~ #menu ul li #contatoLB{background-color:#ffbb01;}
-#Cardapio:checked ~ #menu ul li #cardapioLB{background-color:#ffbb01;}
-#Inicio:checked ~ #menu ul li #inicioLB{background-color:#ffbb01;}
-#Inicio:checked ~ #centro #cintro #inicio{display: inline-block;}
-
-
-#centro #cintro #contatodiv:target{display: flex;}
-
-#inicio{height: 400px;
-				width: 700px;
-				border-radius: 20px;
-				overflow: hidden;
-				position: absolute;
-				box-shadow: 5px 5px 3px;
-				}
-.navigation{
-	position: absolute;
-	bottom: 20px;
-	left: 50%;
-	transform: translate(-50%);
-	display: flex;
-}
-
-.bar{
-	width: 50px;
-	height: 7px;
-	background-color:rgba(173,255,47,0.4);
-	cursor: pointer;
-	margin: 6px;
-	transition: background .5s;
-	}
-	.bar:hover{
-
-		background-color:rgba(173,255,47,1);
-	}
-.slides{display: flex;
-				width: 500%;
-			height: 100%;}
-
-.slide{width: 20%;
-				transition: .6s;}
-.slide img{
-
-	width: 100%;
-	height: 100%;
-}
-
-#slide1:checked ~ .s1{margin-left: 0;}
-#slide2:checked ~ .s1{margin-left: -20%;}
-#slide3:checked ~ .s1{margin-left: -40%;}
-#slide4:checked ~ .s1{margin-left: -60%;}
-#slide5:checked ~ .s1{margin-left: -80%;}
-
-#slide1:checked ~ #centro #cintro #inicio .navigation #nav-1{background-color:rgb(173,255,47); }
+#DCardapio:checked~.central #conteudo #ExcCardapio{display: inline-block;}
 
 
 
-#inicio{display: none;}
+
+
+
+
+.central #painel a{width:100%;text-align: center;margin-bottom: 10px;color: black; font-weight: 700;text-decoration: none;}
+.central #painel a:hover{color: red;}
+
+
+
+
+
+
+
 
 
 

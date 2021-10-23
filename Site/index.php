@@ -13,7 +13,7 @@ session_start();
 	<link rel="manifest" href="/site.webmanifest">
 	<meta charset="utf-8">
 	<title>Healthy Food</title>
-	<link rel="stylesheet" type="text/css" href="CSS/estilopaineladm.css">
+	<link rel="stylesheet" type="text/css" href="CSS/estilo.css">
 </head>
 <body>
 	<script type="text/javascript">

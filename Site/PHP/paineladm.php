@@ -158,16 +158,16 @@ include('verificarlogin.php');
 							</select>
 
 									
-							<label id="buscanome"class="coluna1-2"><?php echo ($_SESSION['nomefunc']); ?></label>
-							<label id="buscasobrenome"class="coluna1-3"><?php echo ($_SESSION['sobrenome']); ?></label>
+							<label id="buscanome"class="coluna1-2">Nome: <?php echo ($_SESSION['nomefunc']); ?></label>
+							<label id="buscasobrenome"class="coluna1-3">Sobrenome: <?php echo ($_SESSION['sobrenome']); ?></label>
 
 							<button type="submit" id="buscafuncionario" class="coluna2-1">Buscar</button>
 
-							<label id="buscacpf"class="coluna2-2"><?php echo ($_SESSION['cpf']); ?></label>
-							<label id="buscadata"class="coluna2-3"><?php echo ($_SESSION['dt_nasc']); ?></label>
-							<label id="buscatelefone"class="coluna3-1"><?php echo ($_SESSION['telefone']); ?></label>
-							<label id="buscaemail"class="coluna3-2"><?php echo ($_SESSION['email']); ?></label>
-							<label id="buscalogin"class="coluna3-3"><?php echo ($_SESSION['login']); ?></label>
+							<label id="buscacpf"class="coluna2-2">CPF: <?php echo ($_SESSION['cpf']); ?></label>
+							<label id="buscadata"class="coluna2-3">Nasc: <?php echo ($_SESSION['dt_nasc']); ?></label>
+							<label id="buscatelefone"class="coluna3-1">Tel: <?php echo ($_SESSION['telefone']); ?></label>
+							<label id="buscaemail"class="coluna3-2">E-mail: <?php echo ($_SESSION['email']); ?></label>
+							<label id="buscalogin"class="coluna3-3">Login: <?php echo ($_SESSION['login']); ?></label>
 
 						</fieldset>
 
@@ -177,9 +177,9 @@ include('verificarlogin.php');
 			<div id="DadosCargo">
 							<fieldset class="fieldset"><legend>Dados Cargo</legend>
 
-								<label class="coluna1-1"><?php echo ($_SESSION['cargo']); ?></label>
-								<label class="coluna2-1"><?php echo ($_SESSION['salario']); ?></label>
-								<label class="coluna3-1"><?php echo ($_SESSION['dt_admissao']); ?></label>
+								<label class="coluna1-1">Cargo: <?php echo ($_SESSION['cargo']); ?></label>
+								<label class="coluna2-1">Salario: R$<?php echo ($_SESSION['salario']); ?></label>
+								<label class="coluna3-1">Admissao: <?php echo ($_SESSION['dt_admissao']); ?></label>
 
 
 							</fieldset>
@@ -190,13 +190,13 @@ include('verificarlogin.php');
 			<div id="Endereco">
 							<fieldset class="fieldset"><legend>Endereço</legend>
 
-								<label class="coluna1-1"><?php echo ($_SESSION['cep']); ?></label>
-								<label class="coluna1-2"><?php echo ($_SESSION['rua']); ?></label>
-								<label class="coluna1-3"><?php echo ($_SESSION['numero']); ?></label>
-								<label class="coluna2-1"><?php echo ($_SESSION['complemento']); ?></label>
-								<label class="coluna2-2"><?php echo ($_SESSION['cidade']); ?></label>
-								<label class="coluna2-3"><?php echo ($_SESSION['bairro']); ?></label>
-								<label class="coluna3-1"><?php echo ($_SESSION['uf']); ?></label>
+								<label class="coluna1-1">CEP: <?php echo ($_SESSION['cep']); ?></label>
+								<label class="coluna1-2">Rua: <?php echo ($_SESSION['rua']); ?></label>
+								<label class="coluna1-3">N°: <?php echo ($_SESSION['numero']); ?></label>
+								<label class="coluna2-1">CMPL: <?php echo ($_SESSION['complemento']); ?></label>
+								<label class="coluna2-2">Cidade: <?php echo ($_SESSION['cidade']); ?></label>
+								<label class="coluna2-3">Bairro: <?php echo ($_SESSION['bairro']); ?></label>
+								<label class="coluna3-1">UF: <?php echo ($_SESSION['uf']); ?></label>
 
 							</fieldset>
 
@@ -462,7 +462,7 @@ include('verificarlogin.php');
 
 							<input class="coluna1-1"type="text" name="cep"placeholder="CEP aquí"value="<?php echo ($_SESSION['cep_at']); ?>">
 							<input class="coluna1-2"type="text" name="rua"placeholder="Rua aquí"value="<?php echo ($_SESSION['rua_at']); ?>">
-							<input class="coluna1-3"type="text" name="numero"placeholder="N° aquí"value="<?php echo ($_SESSION['nomnumero_at']); ?>">
+							<input class="coluna1-3"type="text" name="numero"placeholder="N° aquí"value="<?php echo ($_SESSION['numero_at']); ?>">
 							<input class="coluna2-1"type="text" name="complemento"placeholder="Complemento aquí"value="<?php echo ($_SESSION['complemento_at']); ?>">
 							<input class="coluna2-2"type="text" name="cidade"placeholder="Cidade aquí"value="<?php echo ($_SESSION['cidade_at']); ?>">
 							<input class="coluna2-3"type="text" name="bairro"placeholder="Bairro aquí"value="<?php echo ($_SESSION['bairro_at']); ?>">
