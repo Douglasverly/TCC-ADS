@@ -689,39 +689,31 @@ include('verificarlogin.php');
 			</div>
 
 		<div class="janela" id="BusCardapio">
-			<div class="bordatop"><label for="default">X</label></div>
-			<p>Buscar Item Cardápio</p>
-				<form action="exemplo.php" method="POST">
+			<div class="bordatop"><label for="default">X</label>
+			</div>
+			<p>Visualizar Item Cardápio</p>
 
+			<div class="cardapiobusca">
 
-			<div id="DadosPessoais">
+				<?php
+					$resultado_card="SELECT * FROM Cardapio";
+					$busca_cardapio=mysqli_query($conexao,$resultado_card);
 
-						<label for="selectcardapio" style="margin-left: 70px;">Início</label>
-						<select id="selectcardapio" class=" coluna1-1"><option >selecionar item</option>
-								<option>Todos os Itens</option>
-						</select>
+					while($contador=mysqli_fetch_assoc($busca_cardapio)) {?>
+					<div class="carditens">
 
+						<img src="../img/CardapioIMG/<?php echo $contador['id_imagem'];?>" >
+						<label class="coluna1"for=""><?php echo $contador['nome'];?> </label>
+						<label class="coluna2"for="">R$ <?php echo $contador['valor'];?> </label>
 
-						<button type="submit" class="coluna3-1" id="buscafuncionario">Buscar</button>
+					</div>
+
+						<?php
+						}
+						?>
 
 			</div>
 
-
-			<div id="DadosCargo">
-
-
-			</div>
-
-
-
-			<div id="Endereco">
-
-
-			</div>
-
-
-
-				</form>
 
 			</div>
 
@@ -734,7 +726,9 @@ include('verificarlogin.php');
 			<div id="DadosPessoais"style="margin-top: 100px;">
 
 						<select id="selectcardapio" class=" coluna1-1"><option >selecionar item</option>
+
 						</select>
+
 						<button class=" coluna2-1" id="buscafuncionario">Buscar</button>
 						<button class=" coluna3-1" id="buscafuncionario">Salvar</button>
 
@@ -923,7 +917,7 @@ include('verificarlogin.php');
 
 					<ul class="submenu" id="sub2">
 						<li><label class="itemmenu2"for="CCardapio">Cadastrar</label></li>
-						<li><label class="itemmenu2"for="RCardapio">Buscar</label></li>
+						<li><label class="itemmenu2"for="RCardapio">Visualizar</label></li>
 						<li><label class="itemmenu2"for="UCardapio">Atualizar</label></li>
 						<li><label class="itemmenu2"for="DCardapio">Deletar</label></li>
 					</ul>
