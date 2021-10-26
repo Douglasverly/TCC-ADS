@@ -4,6 +4,7 @@ include('conexao.php');
 include('verificarlogin.php');
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@ include('verificarlogin.php');
 	<link rel="stylesheet" type="text/css" href="../css/estilopaineladm.css">
 </head>
 <body>
-<input class="botaocontrole"type="radio" name="menu1"id="default"> 
+<input class="botaocontrole"type="radio" name="menu1"id="default">
 
 <input class="botaocontrole"type="radio" name="menu1" id="itemFuncionario">
 <input class="botaocontrole"type="radio" name="menu1" id="itemCardapio">
@@ -26,7 +27,7 @@ include('verificarlogin.php');
 <input class="botaocontrole"type="radio" name="menu1" id="CFuncionario">
 <input class="botaocontrole"type="radio" name="menu1" id="RFuncionario" <?php if($_SESSION['checabusca'] != FALSE){?>checked<?PHP } ?>>
 <input class="botaocontrole"type="radio" name="menu1" id="UFuncionario" <?php if($_SESSION['atualizafunc'] == 'atualizafunc'){?>checked<?PHP } ?>>
-<input class="botaocontrole"type="radio" name="menu1" id="DFuncionario">
+<input class="botaocontrole"type="radio" name="menu1" id="DFuncionario"<?php if($_SESSION['CHECAREXCLUIR'] == 'CHECAREXCLUIR'){?>checked<?PHP } ?>>
 
 
 <input class="botaocontrole"type="radio" name="menu1" id="CCardapio">
@@ -45,16 +46,21 @@ include('verificarlogin.php');
 
 
 <div class="central">
-	
+
 
 	<div id="conteudo">
 
 		<div class="janela" id="CadFuncionario">
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Cadastrar Funcionário</p>
+
+			<?php
+			if($_SESSION['inserido']=='inserido')
+			{ ?> <script>alert('Funcionário Cadastrado !')</script> <?php $_SESSION['inserido']=null;} ?>
+
 				<form action="inserefunc.php" method="POST">
 
-					
+
 			<div id="DadosPessoais">
 						<fieldset class="fieldset"><legend>Dados Pessoais</legend>
 
@@ -72,16 +78,16 @@ include('verificarlogin.php');
 
 			</div>
 
-					
+
 			<div id="DadosCargo">
 							<fieldset class="fieldset"><legend>Dados Cargo</legend>
 
-							
+
                             <select name="selectcargo"class="coluna1-1" style="cursor:pointer;">
 
                                   <option value="">Selecione o Cargo</option>
-                                  <option value="ADM-01">Administrador</option> 
-                                  <option value="ATD-01">Atendente</option> 
+                                  <option value="ADM-01">Administrador</option>
+                                  <option value="ATD-01">Atendente</option>
                                   <option value="ENT-01">Entregador</option>
                                   <option value="Cozinheiro">Cozinheiro</option>
                             </select>
@@ -90,9 +96,9 @@ include('verificarlogin.php');
 							</fieldset>
 
 			</div>
-					
 
-					
+
+
 			<div id="Endereco">
 							<fieldset class="fieldset"><legend>Endereço</legend>
 
@@ -103,13 +109,13 @@ include('verificarlogin.php');
 							<input class="coluna2-2"type="text" name="cidade"placeholder="Cidade aquí">
 							<input class="coluna2-3"type="text" name="bairro"placeholder="Bairro aquí">
 							<input class="coluna3-1"type="text" name="uf"placeholder="UF aquí">
-							
+
 							<button type="submit" class="coluna3-3" id="salvarFucionario">Salvar</button>
 
 							</fieldset>
 
 			</div>
-					
+
 
 
 				</form>
@@ -123,11 +129,11 @@ include('verificarlogin.php');
 
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Buscar Funcionário</p>
-			<?php 
-							if($_SESSION['checabusca'] != FALSE ) { ?>	
+			<?php
+							if($_SESSION['checabusca'] != FALSE ) { ?>
 				<form action="preenchefunc.php" method="POST">
 
-					
+
 			<div id="DadosPessoais">
 						<fieldset class="fieldset"><legend>Dados Pessoais</legend>
 							<select class="coluna1-1" style="cursor:pointer;"name="selectusuario">
@@ -137,27 +143,27 @@ include('verificarlogin.php');
 									$busca_idfunc=mysqli_query($conexao,$resultado_func);
 									while($contador=mysqli_fetch_assoc($busca_idfunc)) {?>
 									<option value="<?php echo $contador['id_conta'];?>">
-								
+
 										<?php
 										$resultado_nome="SELECT nome,sobrenome from Usuario WHERE id_usuario='{$contador['id_conta']}'";
 										$nomefunc=mysqli_query($conexao,$resultado_nome);
 										$nome=mysqli_fetch_assoc($nomefunc);
 										echo $nome['nome'];echo" "; echo$nome['sobrenome'];
 										?>
-								
+
 									</option>
 										<?php
 										}
 										?>
 
 
-									
 
-								
+
+
 
 							</select>
 
-									
+
 							<label id="buscanome"class="coluna1-2">Nome: <?php echo ($_SESSION['nomefunc']); ?></label>
 							<label id="buscasobrenome"class="coluna1-3">Sobrenome: <?php echo ($_SESSION['sobrenome']); ?></label>
 
@@ -173,7 +179,7 @@ include('verificarlogin.php');
 
 			</div>
 
-					
+
 			<div id="DadosCargo">
 							<fieldset class="fieldset"><legend>Dados Cargo</legend>
 
@@ -185,8 +191,8 @@ include('verificarlogin.php');
 							</fieldset>
 
 			</div>
-					
-					
+
+
 			<div id="Endereco">
 							<fieldset class="fieldset"><legend>Endereço</legend>
 
@@ -201,39 +207,39 @@ include('verificarlogin.php');
 							</fieldset>
 
 			</div>
-					
+
 
 
 				</form>
 
-			</div>	
-			<?php 
-	$_SESSION['nomefunc']=null;
-	$_SESSION['sobrenome']=null;
-	$_SESSION['cpf']=null;
-	$_SESSION['dt_nasc']=null;
-	$_SESSION['telefone']=null;
-	$_SESSION['email']=null;
-	$_SESSION['login']=null;
-	$_SESSION['cargo']=null;
-	$_SESSION['salario']=null;
-	$_SESSION['dt_admissao']=null;
-	$_SESSION['cep']=null;
-	$_SESSION['rua']=null;
-	$_SESSION['numero']=null;
-	$_SESSION['complemento']=null;
-	$_SESSION['cidade']=null;
-	$_SESSION['bairro']=null;
-	$_SESSION['uf']=null;
-	$_SESSION['checabusca']=null;
+			</div>
+			<?php
+					$_SESSION['nomefunc']=null;
+					$_SESSION['sobrenome']=null;
+					$_SESSION['cpf']=null;
+					$_SESSION['dt_nasc']=null;
+					$_SESSION['telefone']=null;
+					$_SESSION['email']=null;
+					$_SESSION['login']=null;
+					$_SESSION['cargo']=null;
+					$_SESSION['salario']=null;
+					$_SESSION['dt_admissao']=null;
+					$_SESSION['cep']=null;
+					$_SESSION['rua']=null;
+					$_SESSION['numero']=null;
+					$_SESSION['complemento']=null;
+					$_SESSION['cidade']=null;
+					$_SESSION['bairro']=null;
+					$_SESSION['uf']=null;
+					$_SESSION['checabusca']=null;
 
-									
+
 			 }
 			else{
 			 ?>
 			 		<form action="preenchefunc.php" method="POST">
 
-					
+
 				<div id="DadosPessoais">
 					<fieldset class="fieldset"><legend>Dados Pessoais</legend>
 				<select class="coluna1-1" style="cursor:pointer;"name="selectusuario">
@@ -243,26 +249,26 @@ include('verificarlogin.php');
 						$busca_idfunc=mysqli_query($conexao,$resultado_func);
 						while($contador=mysqli_fetch_assoc($busca_idfunc)) {?>
 						<option value="<?php echo $contador['id_conta'];?>">
-					
+
 							<?php
 							$resultado_nome="SELECT nome,sobrenome from Usuario WHERE id_usuario='{$contador['id_conta']}'";
 							$nomefunc=mysqli_query($conexao,$resultado_nome);
 							$nome=mysqli_fetch_assoc($nomefunc);
 							echo $nome['nome'];echo" "; echo$nome['sobrenome'];
 							?>
-					
+
 						</option>
 							<?php
 							}
 							?>
 
 
-						
 
-					
+
+
 
 				</select>
-		
+
 
 							<label id="buscanome"class="coluna1-2">Nome</label>
 							<label id="buscasobrenome"class="coluna1-3">Sobrenome</label>
@@ -279,7 +285,7 @@ include('verificarlogin.php');
 
 			</div>
 
-					
+
 			<div id="DadosCargo">
 							<fieldset class="fieldset"><legend>Dados Cargo</legend>
 
@@ -291,8 +297,8 @@ include('verificarlogin.php');
 							</fieldset>
 
 			</div>
-					
-					
+
+
 			<div id="Endereco">
 							<fieldset class="fieldset"><legend>Endereço</legend>
 
@@ -307,31 +313,26 @@ include('verificarlogin.php');
 							</fieldset>
 
 			</div>
-					
+
 
 
 				</form>
 
-			</div>	
+			</div>
 
 				<?php }?>
-
-
-
-
-
 
 		<div class="janela" id="AtuFuncionario">
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Atualizar Funcionário</p>
 							<?php if($_SESSION['alerte'] == "certo"){?>
-								<script>alert("Dados Atualizados!")</script> 
+								<script>alert("Dados Atualizados!")</script>
 
 							<?php $_SESSION['alerte']=null;}?>
 
 
 							<?php if($_SESSION['alerte']=="erro"){?>
-								<script>alert("erro ao atualizar.")</script> 
+								<script>alert("erro ao atualizar.")</script>
 								<?php $_SESSION['alerte']=null; } ?>
 
 			<?php
@@ -340,31 +341,31 @@ include('verificarlogin.php');
 
 				<form action="preencheatualizafunc.php" method="POST">
 
-					
+
 			<div id="DadosPessoais">
 						<fieldset class="fieldset"><legend>Dados Pessoais</legend>
 
 						<select class="coluna1-1"style="cursor:pointer;"name="selectusuario"><option>Selecionar Funcionário</option>
-							
+
 							<?php
 									$resultado_func="SELECT id_conta,id_access FROM Conta WHERE id_access BETWEEN 1 AND 4 ";
 									$busca_idfunc=mysqli_query($conexao,$resultado_func);
 									while($contador=mysqli_fetch_assoc($busca_idfunc)) {?>
 									<option value="<?php echo $contador['id_conta'];?>">
-								
+
 										<?php
 										$resultado_nome="SELECT nome,sobrenome from Usuario WHERE id_usuario='{$contador['id_conta']}'";
 										$nomefunc=mysqli_query($conexao,$resultado_nome);
 										$nome=mysqli_fetch_assoc($nomefunc);
 										echo $nome['nome'];echo" "; echo$nome['sobrenome'];
 										?>
-								
+
 									</option>
 										<?php
 										}
 										?>
-					
-					
+
+
 						</select>
 
 						<button type="submit" id="buscafuncionario" class="coluna2-1">Buscar</button>
@@ -381,7 +382,7 @@ include('verificarlogin.php');
 
 			</div>
 
-					
+
 			<div id="DadosCargo">
 							<fieldset class="fieldset"><legend>Dados Cargo</legend>
 
@@ -392,9 +393,9 @@ include('verificarlogin.php');
 							</fieldset>
 
 			</div>
-					
 
-					
+
+
 			<div id="Endereco">
 							<fieldset class="fieldset"><legend>Endereço</legend>
 
@@ -405,29 +406,29 @@ include('verificarlogin.php');
 							<input class="coluna2-2"type="text" name="cidade"placeholder="Cidade aquí">
 							<input class="coluna2-3"type="text" name="bairro"placeholder="Bairro aquí">
 							<input class="coluna3-1"type="text" name="uf"placeholder="UF aquí">
-							
+
 							<button type="submit" class="coluna3-3" id="salvarFucionario">Salvar</button>
 
 							</fieldset>
 
 			</div>
-					
+
 
 
 				</form>
-				
+
 
 
 			<?php
 			}
 			?>
 
-			<?php 
+			<?php
 			if($_SESSION['atualizafunc']=='atualizafunc') { ?>
 
 				<form action="atualizafunc.php" method="POST">
 
-					
+
 				<div id="DadosPessoais">
 						<fieldset class="fieldset"><legend>Dados Pessoais</legend>
 
@@ -443,7 +444,7 @@ include('verificarlogin.php');
 
 				</div>
 
-					
+
 				<div id="DadosCargo">
 							<fieldset class="fieldset"><legend>Dados Cargo</legend>
 
@@ -454,9 +455,9 @@ include('verificarlogin.php');
 							</fieldset>
 
 				</div>
-					
 
-					
+
+
 				<div id="Endereco">
 							<fieldset class="fieldset"><legend>Endereço</legend>
 
@@ -467,13 +468,13 @@ include('verificarlogin.php');
 							<input class="coluna2-2"type="text" name="cidade"placeholder="Cidade aquí"value="<?php echo ($_SESSION['cidade_at']); ?>">
 							<input class="coluna2-3"type="text" name="bairro"placeholder="Bairro aquí"value="<?php echo ($_SESSION['bairro_at']); ?>">
 							<input class="coluna3-1"type="text" name="uf"placeholder="UF aquí"value="<?php echo ($_SESSION['uf_at']); ?>">
-							
+
 							<button type="submit" class="coluna3-3" id="salvarFucionario">Salvar</button>
 
 							</fieldset>
 
 				</div>
-					
+
 
 
 				</form>
@@ -483,49 +484,142 @@ include('verificarlogin.php');
 
 
 
-				</div>	
-
+				</div>
 
 		<div class="janela" id="ExcFuncionario">
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Excluir Funcionário</p>
-				<form action="exemplo.php" method="POST">
+			<?php
+			if($_SESSION['excluido']=='excluido')
+			{ ?> <script>alert('Funcionário Excluido !')</script> <?php $_SESSION['excluido']=null;} ?>
 
-					
+			<?php
+			if($_SESSION['CHECAREXCLUIR'] !='CHECAREXCLUIR'){ ?>
+
+				<form action="buscarexcluir.php" method="POST">
+
+
 			<div id="DadosPessoais">
 
-						<select class="coluna2-1"><option>Selecionar Funcionário</option></select>
+						<select class="coluna2-1" name="slcexcluir"><option>Selecionar Funcionário</option>
 
-						
+							<?php
+								$resultado_func="SELECT id_conta,id_access FROM Conta WHERE id_access BETWEEN 1 AND 4 ";
+								$busca_idfunc=mysqli_query($conexao,$resultado_func);
+								while($contador=mysqli_fetch_assoc($busca_idfunc)) {?>
+								<option value="<?php echo $contador['id_conta'];?>">
+
+									<?php
+									$resultado_nome="SELECT nome,sobrenome from Usuario WHERE id_usuario='{$contador['id_conta']}'";
+									$nomefunc=mysqli_query($conexao,$resultado_nome);
+									$nome=mysqli_fetch_assoc($nomefunc);
+									echo $nome['nome'];echo" "; echo$nome['sobrenome'];
+									?>
+
+								</option>
+									<?php
+									}
+									?>
+
+
+						</select>
+
+
 
 			</div>
 
-					
+
 			<div id="DadosCargo">
-							
-							
-							<label class="coluna1-1">Nome:</label> <label class="coluna2-1">CPF:</label> <label class="coluna3-1">Cargo:</label>
-							
+
+
+							<label class="coluna1-1">Nome:</label> <label class="coluna2-1">CPF:</label> <label class="coluna3-1">Login:</label>
+
 
 			</div>
-					
 
-					
+
+
 			<div id="Endereco">
-							
-							<button class="coluna2-1"style="height: 30px;margin-top: 90px;font-weight: 600;background-color: rgb(173,255,47);cursor: pointer;transition: background-color 0.7s;">Deletar</button>
+
+								<button class="coluna2-2"style="height: 30px;margin-top: 90px;font-weight: 600;background-color: rgb(173,255,47);cursor: pointer;transition: background-color 0.7s;">Buscar</button>
 
 			</div>
-					
+
 
 
 				</form>
 
-			</div>	
+
+			<?php } ?>
+
+			<?php if ($_SESSION['CHECAREXCLUIR']=='CHECAREXCLUIR') {
+				 ?>
+
+				 <form action="excluirfunc.php" method="POST">
+
+
+	 		<div id="DadosPessoais">
+
+	 					<select class="coluna2-1" name="slcexcluir"><option>Selecionar Funcionário</option>
+
+	 						<?php
+	 							$resultado_func="SELECT id_conta,id_access FROM Conta WHERE id_access BETWEEN 1 AND 4 ";
+	 							$busca_idfunc=mysqli_query($conexao,$resultado_func);
+	 							while($contador=mysqli_fetch_assoc($busca_idfunc)) {?>
+	 							<option value="<?php echo $contador['id_conta'];?>">
+
+	 								<?php
+	 								$resultado_nome="SELECT nome,sobrenome from Usuario WHERE id_usuario='{$contador['id_conta']}'";
+	 								$nomefunc=mysqli_query($conexao,$resultado_nome);
+	 								$nome=mysqli_fetch_assoc($nomefunc);
+	 								echo $nome['nome'];echo" "; echo$nome['sobrenome'];
+	 								?>
+
+	 							</option>
+	 								<?php
+	 								}
+	 								?>
+
+
+	 					</select>
 
 
 
-		<!--    /\JANELAS Funcionario/\-->	
+	 		</div>
+
+
+	 		<div id="DadosCargo">
+
+
+	 						<label class="coluna1-1">Nome: <?php echo ($_SESSION['excluinome']); ?></label> <label class="coluna2-1">CPF: <?php echo ($_SESSION['excluicpf']);   ?></label> <label class="coluna3-1"> Login: <?php echo ($_SESSION['excluilogin']);   ?></label>
+
+
+	 		</div>
+
+
+
+	 		<div id="Endereco">
+
+	 							<button class="coluna2-2"style="height: 30px;margin-top: 90px;font-weight: 600;background-color: rgb(173,255,47);cursor: pointer;transition: background-color 0.7s;">Deletar</button>
+
+	 		</div>
+
+
+
+	 			</form>
+
+
+			<?php $_SESSION['CHECAREXCLUIR']=null;} ?>
+
+
+
+
+
+			</div>
+
+
+
+		<!--    /\JANELAS Funcionario/\-->
 		<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 		<!--     \/JANELAS Cardapio\/     -->
 
@@ -536,9 +630,9 @@ include('verificarlogin.php');
 			<p>Cadastrar Item Cardápio</p>
 				<form action="exemplo.php" method="POST">
 
-					
+
 			<div id="DadosPessoais">
-						
+
 
 						<input class="coluna1-2" type="text" name="codigoitem" placeholder="Código aquí" maxlength="10">
 						<input class="coluna2-2"type="text" name="nomeitem" placeholder="Nome aquí" maxlength="20">
@@ -547,29 +641,29 @@ include('verificarlogin.php');
 						<input class="coluna2-3"type="text" name="imagemnome"placeholder="nome da imagem aquí">
 						<input class="coluna3-3"type="FILE" name="imagem" style="border: none;">
 
-						
+
 
 			</div>
 
-					
+
 			<div id="DadosCargo">
 
 							<button type="submit" class="coluna2-1" id="buscafuncionario">Salvar</button>
 
-							
+
 
 			</div>
-					
 
-					
+
+
 			<div id="Endereco">
-					
-							
-							
+
+
+
 
 
 			</div>
-					
+
 
 
 				</form>
@@ -581,9 +675,9 @@ include('verificarlogin.php');
 			<p>Buscar Item Cardápio</p>
 				<form action="exemplo.php" method="POST">
 
-					
+
 			<div id="DadosPessoais">
-						
+
 						<label for="selectcardapio" style="margin-left: 70px;">Início</label>
 						<select id="selectcardapio" class=" coluna1-1"><option >selecionar item</option>
 								<option>Todos os Itens</option>
@@ -594,31 +688,31 @@ include('verificarlogin.php');
 
 			</div>
 
-					
+
 			<div id="DadosCargo">
-							
+
 
 			</div>
-					
 
-					
+
+
 			<div id="Endereco">
-							
+
 
 			</div>
-					
+
 
 
 				</form>
 
-			</div>	
+			</div>
 
 		<div class="janela" id="AtuCardapio">
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Atualizar Item Cardápio</p>
 				<form action="exemplo.php" method="POST">
 
-					
+
 			<div id="DadosPessoais"style="margin-top: 100px;">
 
 						<select id="selectcardapio" class=" coluna1-1"><option >selecionar item</option>
@@ -634,57 +728,57 @@ include('verificarlogin.php');
 
 			</div>
 
-					
-			<div id="DadosCargo">
-							
-			</div>
-					
 
-					
-			<div id="Endereco">
-							
+			<div id="DadosCargo">
+
 			</div>
-					
+
+
+
+			<div id="Endereco">
+
+			</div>
+
 
 
 				</form>
 
-			</div>	
+			</div>
 
 		<div class="janela" id="ExcCardapio">
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Excluir Item Cardápio</p>
 				<form action="exemplo.php" method="POST">
 
-					
+
 			<div id="DadosPessoais">
 						<input type="text" name="idcardapio" class=" coluna2-1" placeholder="Código do Item">
 						<button id="salvarFucionario" class=" coluna2-3">Buscar</button>
 
 			</div>
 
-					
+
 			<div id="DadosCargo">
-							
+
 					<label class="coluna1-1">Codigo:</label> <label class="coluna2-1">Nome:</label> <label class="coluna3-1">Valor:</label>
 
 			</div>
-					
 
-					
+
+
 			<div id="Endereco">
-							
+
 							<button id="salvarFucionario" class="coluna2-2">Excluir</button>
 
 			</div>
-					
+
 
 
 				</form>
 
-			</div>	
+			</div>
 
-	
+
 		<!--    /\ JANELAS Cardapio /\    -->
 		<!--  !!!!!!!!!!!!!!!!!!!!!!!!!!!  -->
 		<!--     \/JANELA Historico\/     -->
@@ -696,7 +790,7 @@ include('verificarlogin.php');
 
 
 
-					
+
 			<div id="DadosPessoais">
 
 
@@ -708,33 +802,33 @@ include('verificarlogin.php');
 
 						<button type="submit" class="coluna3-1" id="buscafuncionario">Buscar</button>
 
-						
+
 
 			</div>
 
-					
+
 			<div id="DadosCargo">
-							
 
 
-							
+
+
 
 			</div>
-					
 
-					
+
+
 			<div id="Endereco">
-							
-							
+
+
 
 
 			</div>
-					
+
 
 
 				</form>
 
-			</div>	
+			</div>
 
 
 		<!--     /\JANELA Historico/\     -->
@@ -748,10 +842,10 @@ include('verificarlogin.php');
 
 				<form action="exemplo.php" method="POST">
 
-					
+
 			<div id="DadosPessoais">
-						
-				<label for="datainiciocalc" style="margin-left: 60px;">Início</label>  
+
+				<label for="datainiciocalc" style="margin-left: 60px;">Início</label>
 				<label for="datafimcalc" style="margin-left:190px;">Fim</label>
 
 				<input type="date" name="datainiciocalc" class="coluna1-1">
@@ -761,26 +855,26 @@ include('verificarlogin.php');
 
 			</div>
 
-					
+
 			<div id="DadosCargo">
-							
+
 
 			</div>
-					
 
-					
+
+
 			<div id="Endereco">
-							
+
 
 			</div>
-					
+
 
 
 				</form>
 
-			</div>	
+			</div>
 
-		<!--     /\JANELA Cal.Lucro/\     -->	
+		<!--     /\JANELA Cal.Lucro/\     -->
 
 		</div>
 
@@ -819,7 +913,7 @@ include('verificarlogin.php');
 
 				<li><label class="itemmenu"for="itemHistorico"id="menuHistorico">Histórico</label></li>
 				<li><label class="itemmenu"for="itemCalc-Lucro"id="menuCalc-Lucro">Calc.Lucro</label></li>
-				
+
 			</ul>
 
 
@@ -836,7 +930,7 @@ include('verificarlogin.php');
 
 
 <div id="final">
-	 
+
 	&#169; 2021 Healthy Food
 
 </div>

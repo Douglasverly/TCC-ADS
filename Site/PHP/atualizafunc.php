@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('verificarlogin.php');
 include('conexao.php');
 $nome=$_POST['nome'];
 $sobrenome=$_POST['sobrenome'];

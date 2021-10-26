@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('verificarlogin.php');
 
 
     $id_usuario=$_POST['selectusuario'];
@@ -9,11 +10,11 @@ session_start();
 	$SQL="SELECT *FROM Usuario WHERE id_usuario='{$id_usuario}'";
 	$result_usuario=mysqli_query($conexao,$SQL);
 	$resultadousuario=mysqli_fetch_assoc($result_usuario);
-	
+
 	$SQL2="SELECT *FROM Endereco WHERE id_usuario='{$id_usuario}'";
 	$result_endereco=mysqli_query($conexao,$SQL2);
 	$resultadoendereco=mysqli_fetch_assoc($result_endereco);
-	
+
 
 
 	$SQL3="SELECT *FROM Conta WHERE id_conta='{$id_usuario}'";

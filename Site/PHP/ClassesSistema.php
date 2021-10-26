@@ -1,5 +1,6 @@
 
-<?php 
+<?php
+include('verificarlogin.php');
 
 class Funcionario{
 
@@ -15,7 +16,7 @@ class Funcionario{
 
     public function __construct()
     {
-        
+
     }
     //metodos get
     public function getid_usuario(){
@@ -123,8 +124,8 @@ class Funcionario{
       mysqli_close($conexao);
 
       echo('Inserido com Sucesso!');
-    
-    
+
+
     }
     public function buscarfun(){}
 
@@ -159,7 +160,7 @@ class Endereco{
 
 
     public function inserirend($usuario){
-        
+
          $cep=$this->cep;
          $rua=$this->rua;
          $numero=$this->numero;
@@ -182,7 +183,7 @@ class Endereco{
         mysqli_query($conexao,$SQL) or die ("Erro ao Cadastrar  ".mysqli_error($conexao));
 
         mysqli_close($conexao);
-  
+
         echo('Inserido com Sucesso!');
 
 
@@ -245,4 +246,3 @@ public function inserirconta(){
 
 
 ?>
-

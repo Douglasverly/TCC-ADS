@@ -1,4 +1,6 @@
-<?php 
+<?php
+session_start();
+include('verificarlogin.php');
 require_once('ClassesSistema.php');
 
 $id_usuario=$_POST['cpf'];
@@ -71,8 +73,9 @@ $c1->setsenha($senha);
 $c1->setidaccess($id_access);
 $c1->inserirconta();
 
+$_SESSION['inserido']='inserido';
+
 header('Location: paineladm.php');
 
 
 ?>
-
