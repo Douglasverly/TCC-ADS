@@ -54,7 +54,7 @@ $_SESSION['atualizafunc']= 'atualizafunc';
 
 
 
-
+mysqli_close($conexao);
 
 header('Location: paineladm.php');
 

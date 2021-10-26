@@ -628,18 +628,36 @@ include('verificarlogin.php');
 		<div class="janela" id="CadCardapio">
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Cadastrar Item Cardápio</p>
-				<form action="exemplo.php" method="POST">
+				<?php
+					if ($_SESSION['cardapioalert']=='Salvo com Sucesso !'){
+				 ?>
+				 <script>alert("Salvo com Sucesso !")</script>
+				 <?php
+			 }
+				  ?>
+
+					<?php
+						if ($_SESSION['cardapioalert']=='Erro ao cadastrar !'){
+					 ?>
+					 <script>alert("Erro ao cadastrar !")</script>
+					 <?php
+				 }
+					  ?>
+
+
+
+
+				<form action="cardapiophp/inserecard.php" method="POST" enctype="multipart/form-data">
 
 
 			<div id="DadosPessoais">
 
 
-						<input class="coluna1-2" type="text" name="codigoitem" placeholder="Código aquí" maxlength="10">
-						<input class="coluna2-2"type="text" name="nomeitem" placeholder="Nome aquí" maxlength="20">
-						<input class="coluna3-2"type="text" name="valor" placeholder="Valor aquí" minlength="30"maxlength="250">
-						<input class="coluna1-3"type="text" name="descricao" placeholder="Descrição aquí">
-						<input class="coluna2-3"type="text" name="imagemnome"placeholder="nome da imagem aquí">
-						<input class="coluna3-3"type="FILE" name="imagem" style="border: none;">
+
+						<input class="coluna1-2"type="text" name="nome" placeholder="Nome aquí" maxlength="20">
+						<input class="coluna2-2"type="text" name="valor" placeholder="Valor aquí" >
+						<input class="coluna3-2"type="text" name="descricao" placeholder="Descrição aquí"minlength="30"maxlength="250">
+						<input class="coluna2-3"type="FILE" name="arquivo" style="border:none;	width: 220px;">
 
 
 

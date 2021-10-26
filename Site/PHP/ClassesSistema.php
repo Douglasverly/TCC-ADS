@@ -209,7 +209,7 @@ private $id_access;
 public function getidconta(){return $this-> id_conta;}
 public function getlogin(){return $this-> login;}
 public function getsenha(){return $this-> senha;}
-public function getidaccess(){return $this-> is_access;}
+public function getidaccess(){return $this-> id_access;}
 
 public function setidconta($id_conta){$this->id_conta=$id_conta;}
 public function setlogin($login){$this->login=$login;}
@@ -243,6 +243,58 @@ public function inserirconta(){
 
 }
 
+class cardapio{
+
+private $nome;
+private $descricao;
+private $valor;
+private $id_imagem;
+
+
+public function getnome(){return $this-> nome;}
+public function getdescricao(){return $this-> descricao;}
+public function getvalor(){return $this-> valor;}
+public function getid_imagem(){return $this-> id_imagem;}
+
+public function setnome($nome){$this->nome=$nome;}
+public function setdescricao($descricao){$this->descricao=$descricao;}
+public function setvalor($valor){$this->valor=$valor;}
+public function setid_imagem($id_imagem){$this->id_imagem=$id_imagem;}
+
+
+
+public function inserircardapio(){
+    $nome=$this->nome;
+    $descricao=$this->descricao;
+    $valor=$this->valor;
+    $id_imagem=$this->id_imagem;
+
+    $SQL="INSERT INTO Cardapio(nome,descricao,valor,id_imagem)values(
+        '{$nome}',
+        '{$descricao}',
+        {$valor},
+        '{$id_imagem}')";
+
+        include('conexao.php');
+
+        mysqli_query($conexao,$SQL) or die ("Erro ao Cadastrar  ".mysqli_error($conexao));
+        $msgerro=mysqli_error($conexao);
+        mysqli_close($conexao);
+
+        if($msgerro==null){
+          $alerta=null;
+        }
+        else {
+          $alerta="Erro ao cadastrar !";
+        }
+
+
+        return $alerta;
+
+}
+
+
+}
 
 
 ?>

@@ -52,6 +52,7 @@ $_SESSION['uf']=$resultadoendereco['uf'];
 
 $_SESSION['checabusca']= true;
 
+mysqli_close($conexao);
 
 header('Location: paineladm.php');
 

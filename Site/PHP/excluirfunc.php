@@ -11,6 +11,9 @@ $SQL3="DELETE FROM Conta Where id_conta='{$id_usuario}'";
 mysqli_query($conexao,$SQL3);
 mysqli_query($conexao,$SQL2);
 mysqli_query($conexao,$SQL1);
+
+mysqli_close($conexao);
+
 $_SESSION['excluido']='excluido';
 
 header('Location: paineladm.php');
