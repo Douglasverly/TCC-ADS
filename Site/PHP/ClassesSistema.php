@@ -293,8 +293,34 @@ public function inserircardapio(){
 
 }
 
+  public function atualizarcard($id_item){
+
+    $nome=$this->nome;
+    $descricao=$this->descricao;
+    $valor=$this->valor;
+    $id_imagem=$this->id_imagem;
+
+
+    $SQL="UPDATE Cardapio SET nome='{$nome}',valor='{$valor}',descricao='{$descricao}',
+      id_imagem='{$id_imagem}' WHERE id_item={$id_item}";
+      include('conexao.php');
+  mysqli_query($conexao,$SQL);
+  $erro=mysqli_error($conexao);
+  mysqli_close($conexao);
+
+  if ($erro=="") {
+    $msgerro="Atualizado com Sucesso !";
+  }else{
+    $msgerro="Erro ao Atualizar !";
+  }
+
+  return $msgerro;
+  }
+
 
 }
+
+
 
 
 ?>

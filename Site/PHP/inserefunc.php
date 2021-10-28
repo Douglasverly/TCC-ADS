@@ -65,12 +65,17 @@ if($id_cargo=='ATD-01'){
 if($id_cargo=='ENT-01'){
     $id_access=3;
 }
+if($id_cargo=='CLT-01'){
+    $id_cargo=4;
+}
+
 
 $c1=new Conta;
 $c1->setidconta($id_usuario);
 $c1->setlogin($login);
 $c1->setsenha($senha);
 $c1->setidaccess($id_access);
+
 $c1->inserirconta();
 
 $_SESSION['inserido']='inserido';

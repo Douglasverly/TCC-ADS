@@ -32,7 +32,7 @@ include('verificarlogin.php');
 
 <input class="botaocontrole"type="radio" name="menu1" id="CCardapio">
 <input class="botaocontrole"type="radio" name="menu1" id="RCardapio">
-<input class="botaocontrole"type="radio" name="menu1" id="UCardapio">
+<input class="botaocontrole"type="radio" name="menu1" id="UCardapio"<?php if($_SESSION['checar'] ==true){?>checked<?PHP $_SESSION['checar'] = false; } ?>>
 <input class="botaocontrole"type="radio" name="menu1" id="DCardapio"<?php if($_SESSION['cardconfirm'] == 'abrir'){?>checked<?PHP } ?>>
 
 
@@ -748,7 +748,7 @@ include('verificarlogin.php');
 					$busca_cardapio=mysqli_query($conexao,$resultado_card);
 
 					while($contador=mysqli_fetch_assoc($busca_cardapio)) {?>
-					<form action="cardapiophp/atualizarcard.php" method="POST"style="width:100%;height: 100px;margin-bottom:2px;">
+					<form action="cardapiophp/atualizarcard.php" method="POST" enctype="multipart/form-data" style="width:100%;height: 100px;margin-bottom:2px;">
 						<div class="carditens">
 
 							<input type="text"name="id_item" style="display:none;" value="<?php echo $contador['id_item']; ?>">
@@ -758,11 +758,12 @@ include('verificarlogin.php');
 
 							<img src="../img/CardapioIMG/<?php echo $contador['id_imagem'];?>" >
 
-							<input class="coluna1" type="text" name="nome" value="<?php echo $contador['nome'];?>">
-							<input type="text" name="valor" value="<?php echo $contador['valor'];?>">
-							<textarea name="descricao" rows="8" cols="80" value="<?php echo $contador['descricao'];?>"></textarea>
+							<input class="coluna1"type="FILE" name="arquivo" style="left:380px;width:120px;">
+							<input class="coluna1" type="text" name="nome" placeholder="Nome do Item" value="<?php echo $contador['nome'];?>">
+							<input class="coluna2" type="text" name="valor" placeholder="Valor" value="<?php echo $contador['valor'];?>">
+							<textarea class="coluna3"name="descricao" rows="8" placeholder="Descrição" cols="80"><?php echo $contador['descricao'];?></textarea>
 
-							<input type="submit"  value="Excluir" style="right:5px;bottom:5px;position:absolute;">
+							<input type="submit"  value="Atualizar"  style="right:5px;bottom:5px;position:absolute;">
 
 						</div>
 					</form>

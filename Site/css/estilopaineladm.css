@@ -298,11 +298,12 @@ body::-webkit-scrollbar-thumb {
 
 .carditens img{width: 120px;height: 100px;}
 
-.carditens .coluna1{position: absolute;top:45px;left: 130px;font-family: sans-serif;font-weight: 600;border-bottom: 2px solid rgb(173,255,47);}
+.carditens .coluna1{position: absolute;top:45px;left: 130px;font-family: sans-serif;font-weight: 600;border-style: none; border-bottom: 2px solid rgb(173,255,47);width: 100px;text-align: center;}
 
-.carditens .coluna2{position: absolute;top:45px;right: 10px;font-family: sans-serif;font-weight: 600;border-bottom: 2px solid rgb(173,255,47);}
+.carditens .coluna2{position: absolute;top:45px;right: 10px;font-family: sans-serif;font-weight: 600;border-style: none; border-bottom: 2px solid rgb(173,255,47);width: 100px;text-align: center;}
 
-.carditens .coluna3{position: absolute;top:45px;left: 220px;font-family: sans-serif;font-weight: 600;border-bottom: 2px solid rgb(173,255,47);}
+.carditens .coluna3{position: absolute;top:35px;left: 250px;font-family: sans-serif;font-weight: 600;border-bottom: 2px solid rgb(173,255,47);width: 100px;height: 40px;text-align: center;}
+
 
 	/*
 
