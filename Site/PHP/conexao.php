@@ -1,8 +1,8 @@
 <?php
 define('HOST','localhost');
 define('USUARIO','root');
-define('SENHA','Akerpromar@1995');
-define('BD','HelthyFood');
+define('SENHA','admin');
+define('BD','tcc');
 
 $conexao = mysqli_connect(HOST,USUARIO,SENHA,BD) or die('Erro ao conectar ao banco');
 

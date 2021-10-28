@@ -1,7 +1,6 @@
 <?php
-session_start();
-include('verificarlogin.php');
-require_once('ClassesSistema.php');
+include('../verificarlogin.php');
+require_once('../ClassesSistema.php');
 
 $id_usuario=$_POST['cpf'];
 $nome=$_POST['nome'];
@@ -10,8 +9,7 @@ $dt_nasc=$_POST['datanasc'];
 $sexo=$_POST['sexo'];
 $telefone=$_POST['telefone'];
 $email=$_POST['email'];
-$dt_admissao=$_POST['dtadmissao'];
-$id_cargo=$_POST['selectcargo'];
+$id_cargo='CLT-01';
 
 $cep=$_POST['cep'];
 $rua=$_POST['rua'];
@@ -24,23 +22,22 @@ $uf=$_POST['uf'];
 $login=$_POST['login'];
 $senha=$_POST['senha'];
 
-$id_access='0';
+$id_access=4;
 
 
-$f1=new Funcionario();
+$at1=new Cliente();
 
-$f1->setid_usuario($id_usuario);
-$f1->setnome($nome);
-$f1->setsobrenome($sobrenome);
-$f1->setdt_nasc($dt_nasc);
-$f1->setsexo($sexo);
-$f1->settelefone($telefone);
-$f1->setemail($email);
-$f1->setdt_admissao($dt_admissao);
-$f1->setid_cargo($id_cargo);
 
-$f1->inserirfun();
+$at1->setid_usuario($id_usuario);
+$at1->setnome($nome);
+$at1->setsobrenome($sobrenome);
+$at1->setdt_nasc($dt_nasc);
+$at1->setsexo($sexo);
+$at1->settelefone($telefone);
+$at1->setemail($email);
+$at1->setid_cargo($id_cargo);
 
+$at1->inserecliente();
 
 $e1=new Endereco;
 
@@ -54,8 +51,6 @@ $e1->setuf($uf);
 
 $e1->inserirend($id_usuario);
 
-
-
 if($id_cargo=='ADM-01'){
     $id_access=1;
 }
@@ -65,26 +60,22 @@ if($id_cargo=='ATD-01'){
 if($id_cargo=='ENT-01'){
     $id_access=3;
 }
-if($id_cargo=='CLT-01'){
-    $id_cargo=4;
-}
-
 
 if($id_cargo=='CLT-01'){
     $id_access=4;
 }
+
 
 $c1=new Conta;
 $c1->setidconta($id_usuario);
 $c1->setlogin($login);
 $c1->setsenha($senha);
 $c1->setidaccess($id_access);
-
 $c1->inserirconta();
 
-$_SESSION['inserido']='inserido';
+$_SESSION['inserecli']='inserido';
 
-header('Location: paineladm.php');
+header('Location: ../painelatd.php');
 
 
 ?>

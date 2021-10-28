@@ -320,6 +320,94 @@ public function inserircardapio(){
 
 }
 
+class Cliente{
+
+    private $id_usuario;
+    private $nome;
+    private $sobrenome;
+    private $dt_nasc;
+    private $sexo;
+    private $telefone;
+    private $email;
+    private $id_cargo;
+
+    public function __construct()
+    {
+
+}
+
+public function setid_usuario($id_usuario){
+    $this->id_usuario=$id_usuario;
+
+}
+public function setnome($nome){
+    $this->nome=$nome;
+
+}
+public function setsobrenome($sobrenome){
+    $this->sobrenome=$sobrenome;
+
+}
+public function setdt_nasc($dt_nasc){
+    $this->dt_nasc=$dt_nasc;
+
+}
+public function setsexo($sexo){
+    $this->sexo=$sexo;
+
+}
+public function settelefone($telefone){
+    $this->telefone=$telefone;
+
+}
+public function setemail($email){
+    $this->email=$email;
+
+}
+
+public function setid_cargo($id_cargo){
+    $this->id_cargo=$id_cargo;
+
+}
+
+public function inserecliente(){
+    include('conexao.php');
+
+    $id_usuario=$this->id_usuario;
+    $nome=$this->nome;
+    $sobrenome=$this->sobrenome;
+    $dt_nasc=$this->dt_nasc;
+    $sexo=$this->sexo;
+    $telefone=$this->telefone;
+    $email=$this->email;
+    $id_cargo=$this->id_cargo;
+
+
+    $SQL="INSERT INTO Usuario (id_usuario,nome,sobrenome,dt_nasc,sexo,telefone,email,id_cargo)
+     values('{$id_usuario}',
+     '{$nome}',
+     '{$sobrenome}',
+     STR_TO_DATE('{$dt_nasc}','%d/%m/%Y'),
+     '{$sexo}',
+     '{$telefone}',
+    '{$email}',
+     '{$id_cargo}')";
+
+     mysqli_query($conexao,$SQL) or die ("Erro ao Cadastrar  ".mysqli_error($conexao));
+
+     mysqli_close($conexao);
+
+     echo('Inserido com Sucesso!');
+
+
+   }
+
+
+}
+
+
+
+    
 
 
 
