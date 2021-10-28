@@ -33,7 +33,7 @@ include('verificarlogin.php');
 <input class="botaocontrole"type="radio" name="menu1" id="CCardapio">
 <input class="botaocontrole"type="radio" name="menu1" id="RCardapio">
 <input class="botaocontrole"type="radio" name="menu1" id="UCardapio">
-<input class="botaocontrole"type="radio" name="menu1" id="DCardapio">
+<input class="botaocontrole"type="radio" name="menu1" id="DCardapio"<?php if($_SESSION['cardconfirm'] == 'abrir'){?>checked<?PHP } ?>>
 
 
 
@@ -335,6 +335,22 @@ include('verificarlogin.php');
 								<script>alert("erro ao atualizar.")</script>
 								<?php $_SESSION['alerte']=null; } ?>
 
+
+								<?php if($_SESSION['checkdeletar'] == "sucesso"){?>
+									<script>alert("Excluido com Sucesso!")</script>
+
+								<?php $_SESSION['checkdeletar']=null;}?>
+
+
+								<?php if($_SESSION['checkdeletar']=="errocard"){?>
+									<script>alert("Erro ao Excluir.")</script>
+									<?php $_SESSION['checkdeletar']=null; } ?>
+
+
+
+
+
+
 			<?php
 			if($_SESSION['atualizafunc']!='atualizafunc'){
 				?>
@@ -633,6 +649,7 @@ include('verificarlogin.php');
 				 ?>
 				 <script>alert("Salvo com Sucesso !")</script>
 				 <?php
+				 $_SESSION['cardapioalert']=null;
 			 }
 				  ?>
 
@@ -641,6 +658,7 @@ include('verificarlogin.php');
 					 ?>
 					 <script>alert("Erro ao cadastrar !")</script>
 					 <?php
+					 $_SESSION['cardapioalert']=null;
 				 }
 					  ?>
 
@@ -720,73 +738,78 @@ include('verificarlogin.php');
 		<div class="janela" id="AtuCardapio">
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Atualizar Item Cardápio</p>
-				<form action="exemplo.php" method="POST">
+
+			<div class="cardapiobusca">
 
 
-			<div id="DadosPessoais"style="margin-top: 100px;">
+				<?php
 
-						<select id="selectcardapio" class=" coluna1-1"><option >selecionar item</option>
+					$resultado_card="SELECT * FROM Cardapio ORDER BY nome";
+					$busca_cardapio=mysqli_query($conexao,$resultado_card);
 
-						</select>
+					while($contador=mysqli_fetch_assoc($busca_cardapio)) {?>
+					<form action="cardapiophp/atualizarcard.php" method="POST"style="width:100%;height: 100px;margin-bottom:2px;">
+						<div class="carditens">
 
-						<button class=" coluna2-1" id="buscafuncionario">Buscar</button>
-						<button class=" coluna3-1" id="buscafuncionario">Salvar</button>
+							<input type="text"name="id_item" style="display:none;" value="<?php echo $contador['id_item']; ?>">
+							<input type="text"name="id_imagem" style="display:none;" value="<?php echo $contador['id_imagem']; ?>">
 
-						<input class="coluna1-2"type="text" name="nomeitem" placeholder="Nome aquí" maxlength="20">
-						<input class="coluna2-2"type="text" name="valor" placeholder="Valor aquí" minlength="30"maxlength="250">
-						<input class="coluna3-2"type="text" name="descricao" placeholder="Descrição aquí">
-						<input class="coluna1-3"type="text" name="imagemnome"placeholder="nome da imagem aquí">
-						<input class="coluna2-3"type="FILE" name="imagem" style="border: none;">
+
+
+							<img src="../img/CardapioIMG/<?php echo $contador['id_imagem'];?>" >
+
+							<input class="coluna1" type="text" name="nome" value="<?php echo $contador['nome'];?>">
+							<input type="text" name="valor" value="<?php echo $contador['valor'];?>">
+							<textarea name="descricao" rows="8" cols="80" value="<?php echo $contador['descricao'];?>"></textarea>
+
+							<input type="submit"  value="Excluir" style="right:5px;bottom:5px;position:absolute;">
+
+						</div>
+					</form>
+						<?php
+						}
+						?>
+
 
 			</div>
-
-
-			<div id="DadosCargo">
-
-			</div>
-
-
-
-			<div id="Endereco">
-
-			</div>
-
-
-
-				</form>
 
 			</div>
 
 		<div class="janela" id="ExcCardapio">
 			<div class="bordatop"><label for="default">X</label></div>
-			<p>Excluir Item Cardápio</p>
-				<form action="exemplo.php" method="POST">
+			<p>Excluir Itens Cardápio</p>
+				<?php
+					$_SESSION['cardconfirm']=null;
+				 ?>
+			<div class="cardapiobusca">
 
 
-			<div id="DadosPessoais">
-						<input type="text" name="idcardapio" class=" coluna2-1" placeholder="Código do Item">
-						<button id="salvarFucionario" class=" coluna2-3">Buscar</button>
+
+
+				<?php
+					$resultado_card="SELECT * FROM Cardapio ORDER BY nome";
+					$busca_cardapio=mysqli_query($conexao,$resultado_card);
+
+					while($contador=mysqli_fetch_assoc($busca_cardapio)) {?>
+					<form action="cardapiophp/excluircard.php" method="POST"style="width:100%;height: 100px;margin-bottom:2px;">
+						<div class="carditens">
+							<input type="text"name="id_item" style="display:none;" value="<?php echo $contador['id_item']; ?>">
+							<input type="text"name="id_imagem" style="display:none;" value="<?php echo $contador['id_imagem']; ?>">
+
+
+							<img src="../img/CardapioIMG/<?php echo $contador['id_imagem'];?>" >
+							<label class="coluna1"for=""><?php echo $contador['nome'];?> </label>
+							<label class="coluna2"for="">R$ <?php echo $contador['valor'];?> </label>
+							<input type="submit"  value="Excluir" style="right:5px;bottom:5px;position:absolute;">
+
+						</div>
+					</form>
+						<?php
+						}
+						?>
+
 
 			</div>
-
-
-			<div id="DadosCargo">
-
-					<label class="coluna1-1">Codigo:</label> <label class="coluna2-1">Nome:</label> <label class="coluna3-1">Valor:</label>
-
-			</div>
-
-
-
-			<div id="Endereco">
-
-							<button id="salvarFucionario" class="coluna2-2">Excluir</button>
-
-			</div>
-
-
-
-				</form>
 
 			</div>
 
@@ -951,34 +974,3 @@ include('verificarlogin.php');
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <h2>Bem Vindo,  <?php // echo $_SESSION['nome']; ?> </h2>
-<h2><a href="logout.php">Sair</a></h2>  -->
