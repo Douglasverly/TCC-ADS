@@ -39,7 +39,7 @@ $_SESSION['nome']=$nome['nome'];
 if(($validacao == 1) && ($dados['id_access']==2))
 {
     $_SESSION['nome']=$nome['nome'];
- header('Location: ../PHP/paineladm.php');
+ header('Location: ../PHP/painelatd.php');
  exit();
 }
 if(($validacao == 1) && ($dados['id_access']==3))
