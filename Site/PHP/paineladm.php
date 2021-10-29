@@ -19,9 +19,11 @@ include('verificarlogin.php');
 <body>
 <input class="botaocontrole"type="radio" name="menu1"id="default">
 
+
 <input class="botaocontrole"type="radio" name="menu1" id="itemFuncionario">
 <input class="botaocontrole"type="radio" name="menu1" id="itemCardapio">
-<input class="botaocontrole"type="radio" name="menu1" id="itemHistorico">
+<input class="botaocontrole"type="radio" name="menu1" id="itemHistorico" <??><?php if ($_SESSION['historicocheca']=='sim') {?> checked <?php }?>>
+
 <input class="botaocontrole"type="radio" name="menu1" id="itemCalc-Lucro">
 
 <input class="botaocontrole"type="radio" name="menu1" id="CFuncionario">
@@ -819,52 +821,62 @@ include('verificarlogin.php');
 		<!--  !!!!!!!!!!!!!!!!!!!!!!!!!!!  -->
 		<!--     \/JANELA Historico\/     -->
 
-		<div class="janela" id="BusHistorico">
-			<div class="bordatop"><label for="default">X</label></div>
-			<p>Histórico</p>
-				<form action="exemplo.php" method="POST">
+		<div class="janela" id="BusHistorico" style="overflow: hidden;">
+					<div class="bordatop"><label for="default">X</label></div>
+					<p>Histórico</p>
 
 
+					<?php
+					$dados=filter_input_array(INPUT_POST,FILTER_DEFAULT);
 
+ 					?>
 
-			<div id="DadosPessoais">
-
-
+					<form  method="POST" style="height:20%;">
+						<div id="DadosPessoais">
 						<label for="datainicio" style="margin-left: 60px;">Início</label>
-						<input type="date" name="datainicio" class=" coluna1-1"id="datainicio" >
+						<input id="datainicio" type="date" name="datainicio" class=" coluna1-1">
 
 						<label for="datafim" style="margin-left:190px;">Fim</label>
-						<input type="date" name="datafim" class=" coluna2-1"id="datafim" >
+						<input id="datafim"type="date" name="datafim" class=" coluna2-1">
 
-						<button type="submit" class="coluna3-1" id="buscafuncionario">Buscar</button>
-
-
-
-			</div>
+						<input type="submit" class="coluna3-1" id="buscafuncionario" name="buscarh" value="Buscar">
+						</div>
+					</form>
 
 
-			<div id="DadosCargo">
+					<div style="height: 60%;width:100%;">
+						<?php
+						if(!empty($dados['buscarh'])){
+
+							$_SESSION['historicocheca']='sim';
+
+							$SQL="SELECT *FROM Historico WHERE dt_pedido between STR_TO_DATE('{$dados['datainicio']}','%Y-%m-%d') AND STR_TO_DATE ('{$dados['datafim']}','%Y-%m-%d')";
+
+							$result=mysqli_query($conexao,$SQL);
+							while ($contar=mysqli_fetch_assoc($result)) {
+
+								?>
+										<div style='border-bottom:2px solid greenyellow;width:100%;height:20%;position:relative;display:inline-flex;justify-content:center;flex-direction:column;'>
+								    <label for='' style='color:black;border:1px solid greenyellow;position:absolute;left:10px;'>Nome: <??><?php echo $contar['descricao_item'];  ?></label>
+								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:220px;'>Valor: <?php echo $contar['valor'];  ?></label>
+								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:290px;'>Situação:<?php echo $contar['situacao_pedido'];  ?></label>
+								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:480px;'>Data: <?php echo $contar['dt_pedido'];  ?></label>
+								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:620px;'>N°Pedido: <?php echo $contar['id_pedido'];  ?></label>
+
+								  	</div>
 
 
 
+							<?php
+							}
+
+						 } ?>
 
 
-			</div>
+					</div>
 
 
-
-			<div id="Endereco">
-
-
-
-
-			</div>
-
-
-
-				</form>
-
-			</div>
+		</div>
 
 
 		<!--     /\JANELA Historico/\     -->
