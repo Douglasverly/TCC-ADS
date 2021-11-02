@@ -109,7 +109,7 @@ session_start();
 						<button type="submit">Entrar</button>
 
 					</form>
-					<p>ainda não possui cadastro?clique <a href="#">aqui</a></p>
+					<p>ainda não possui cadastro?clique <a href="PHP/cliente/cadastrar.php">aqui</a></p>
 
 				</div>
 		</div>

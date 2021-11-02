@@ -22,9 +22,10 @@ include('verificarlogin.php');
 
 <input class="botaocontrole"type="radio" name="menu1" id="itemFuncionario">
 <input class="botaocontrole"type="radio" name="menu1" id="itemCardapio">
-<input class="botaocontrole"type="radio" name="menu1" id="itemHistorico" <??><?php if ($_SESSION['historicocheca']=='sim') {?> checked <?php }?>>
+<input class="botaocontrole"type="radio" name="menu1" id="itemHistorico" >
 
-<input class="botaocontrole"type="radio" name="menu1" id="itemCalc-Lucro">
+<input class="botaocontrole"type="radio" name="menu1" id="itemCalc-Lucro"<?php if ($_SESSION['VERIFICALUCRO']=='sim'){ ?> checked
+<?php ;$_SESSION['VERIFICALUCRO']=null; }  ?>>
 
 <input class="botaocontrole"type="radio" name="menu1" id="CFuncionario">
 <input class="botaocontrole"type="radio" name="menu1" id="RFuncionario" <?php if($_SESSION['checabusca'] != FALSE){?>checked<?PHP } ?>>
@@ -888,7 +889,7 @@ include('verificarlogin.php');
 			<div class="bordatop"><label for="default">X</label></div>
 			<p>Calcular Lucro</p>
 
-				<form action="exemplo.php" method="POST">
+				<form action="calclucro.php" method="POST">
 
 
 			<div id="DadosPessoais">
@@ -900,12 +901,12 @@ include('verificarlogin.php');
 				<input type="date" name="datafimcalc" class="coluna2-1">
 				<button type="submit" class="coluna3-1" id="buscafuncionario">Calcular</button>
 
-
 			</div>
 
 
 			<div id="DadosCargo">
 
+							<label class="coluna2-1"for="">R$: <?php echo $_SESSION['lucro'];  $_SESSION['lucro']=null;?></label>
 
 			</div>
 

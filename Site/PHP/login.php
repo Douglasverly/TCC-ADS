@@ -49,6 +49,14 @@ if(($validacao == 1) && ($dados['id_access']==3))
  exit();
 }
 
+if(($validacao == 1) && ($dados['id_access']==4))
+{
+    $_SESSION['nome']=$nome['nome'];
+ header('Location: ../PHP/painel.php');
+ exit();
+}
+
+
 if($validacao != 1){
     $_SESSION['erro_login']="sim";
     header('Location: ../index.php');
