@@ -251,6 +251,7 @@ body::-webkit-scrollbar-thumb {
 #Inicio:checked ~ #menu ul li #inicioLB::before{height: 300%;}
 
 #Inicio:checked ~ #centro #cintro #inicio{display: inline-block;}
+
 #Cardapio:checked ~ #centro #cintro #cardapioitem{display: grid;}
 
 
