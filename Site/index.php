@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-
+include('PHP/conexao.php');
 session_start();
 ?>
 
@@ -86,12 +86,36 @@ session_start();
 				<label class="bar" id="nav-4"for="slide4"></label>
 				<label class="bar" id="nav-5"for="slide5"></label>
 			</div>
+		</div>
 
 
+	<div id="cardapioitem">
+
+
+		<?php
+
+		$SQL="SELECT *FROM Cardapio";
+		$result=mysqli_query($conexao,$SQL);
+
+		while ($resultado=mysqli_fetch_assoc($result)) {
+
+		 ?>
+
+		<div class="itenscard">
+
+			<img src="img/cardapioIMG/<?php echo $resultado['id_imagem'];?>">
+			<label>Nome: <?php echo $resultado['nome'] ?></label>
 
 
 		</div>
 
+			<?php
+ 				} ?>
+
+
+
+
+	</div>
 
 
 
