@@ -52,7 +52,8 @@
         <input type="text" name="cep" placeholder="CEP aqui"style="position:absolute;left:50%;top:50%;transform: translate(-50%,-50%);width:120px;border:none;border-bottom:2px solid greenyellow;text-align:center;">
         <input type="text" name="uf" placeholder="UF aqui"style="position:absolute;left:50%;top:90%;transform: translate(-50%,-50%);width:120px;border:none;border-bottom:2px solid greenyellow;text-align:center;">
         <input type="text" name="complemento" placeholder="Complemento aqui"style="position:absolute;left:90%;top:10%;transform: translate(-50%,-50%);width:120px;border:none;border-bottom:2px solid greenyellow;text-align:center;">
-        <input type="submit" value="Cadastrar"name="cadastrar"style="position:absolute;left:90%;top:50%;transform: translate(-50%,-50%);width:120px;border:none;border-bottom:2px solid greenyellow;text-align:center;">
+        <input type="submit" value="Cadastrar"name="cadastrar"style="cursor: pointer;position:absolute;left:90%;top:50%;transform: translate(-50%,-50%);width:120px;border:none;border-bottom:2px solid greenyellow;text-align:center;">
+				<a href="../../index.php" style="font-size:13px;font-weight: 500;color: black;background-color: white;text-decoration: none;position:absolute;left:90%;top:70%;transform: translate(-50%,-50%);width:120px;border:none;border-bottom:2px solid greenyellow;text-align:center;"> Voltar </a>
       </fieldset>
 
 

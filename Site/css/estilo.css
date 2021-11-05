@@ -341,3 +341,30 @@ body::-webkit-scrollbar-thumb {
 								overflow: hidden;
 						    padding: 5px;
 						    border-bottom: 1px solid greenyellow;}
+
+
+
+
+
+#sobrediv{
+
+padding: 0;
+display: none;
+justify-content: center;
+flex-direction: column;
+align-items: right;
+width: 700px;
+height: 100%;
+background-color: rgba(248, 248, 248, 0);
+z-index: 40;}
+
+#centro #cintro #sobrediv p{
+		font-size: 15px;}	
+
+#centro #cintro #sobrediv p pre{
+			width: 80%;
+			transform: translate(-25%);
+			font-size: 15px;}								
+
+#Sobre:checked ~ #centro #cintro #sobrediv{display: flex;}
+#Sobre:checked ~ #menu ul li #SobreLB::before{height: 300%;}

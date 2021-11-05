@@ -11,8 +11,6 @@ $senha = mysqli_real_escape_string($conexao,$_POST['senha']);
 
 $query="SELECT id_access,id_conta from Conta where login='{$login}' and senha=md5('{$senha}')";
 
-$queryusuario="SELECT id_usuario from Conta where login='{$login}'and senha=md5('{$senha}')";
-
 
 $queryid_access="SELECT id_access from Conta where login='{$login}' and senha=md5('{$senha}')";
 
@@ -51,6 +49,7 @@ if(($validacao == 1) && ($dados['id_access']==3))
 
 if(($validacao == 1) && ($dados['id_access']==4))
 {
+    $_SESSION['id_usuario']=$usuario;
     $_SESSION['nome']=$nome['nome'];
  header('Location: ../PHP/cliente/telacliente.php');
  exit();

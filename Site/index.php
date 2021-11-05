@@ -34,6 +34,7 @@ session_start();
 	<input type="radio" class="check" name="select" id="Inicio" checked>
 	<input type="radio" class="check" name="select" id="Cardapio">
 	<input type="radio" class="check" name="select" id="Contato">
+	<input type="radio" class="check" name="select" id="Sobre">
 
 
 <div id="topo">
@@ -45,7 +46,9 @@ session_start();
 		<li><label for="Inicio" id="inicioLB" >Início</label></li>
 		<li><label for="Cardapio"id="cardapioLB" >Cardápio</label></li>
 		<li><label for="Contato"id="contatoLB" >Contato</label></li>
+		<li><label for="Sobre"id="SobreLB">Sobre</label></li>
 		<li><label for="user" id="userlogo">Entrar</label></li>
+
 	</ul>
 
 </nav>
@@ -136,6 +139,26 @@ session_start();
 					<p>ainda não possui cadastro?clique <a href="PHP/cliente/cadastrar.php">aqui</a></p>
 
 				</div>
+		</div>
+		<div id="sobrediv">
+
+				 	<p style="margin-left: 20px;">A Healthy Food é uma empresa de comercialização de comidas saudáveis</p>
+					 <p>Temos como missão atender a todos os nossos clientes possibilitando </p>
+					 <p>praticidade,conforto e qualidade de atendimento e de vida com uma alimentação</p>
+					 <p>mais saudável.</p><br>
+					<p style="margin-left: 20px;">Nossos produtos buscam facilitar a vida das pessoas que nao tem tempo hábil para cozinhar</p>
+					 <p>e mesmo assim querem mater um alimentação saudável e acima de tudo saborosa.</p>
+
+
+
+
+
+
+
+
+
+
+
 		</div>
 
 		<div id="contatodiv">
