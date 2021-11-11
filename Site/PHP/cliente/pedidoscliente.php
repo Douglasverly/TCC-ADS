@@ -16,12 +16,59 @@ include('../conexao.php');?>
     </div>
 
 <div class="central">
+<div class="cintro">
+
+  <div id="conteudo">
+
+<fieldset><legend>Pedidos Abertos</legend>
+<?php
+  
+  $SQL="SELECT *FROM Pedido WHERE id_conta='{$_SESSION['id_usuario']}'and situacao<>'Entregue' and situacao<>'Cancelado'";
+  $resultado=mysqli_query($conexao,$SQL);
+
+  while ($retorno=mysqli_fetch_assoc($resultado)) {
+
+      $descricao=explode('|',$retorno['descricao']);
+
+      ?>
+      <div class="pedidos">
+      <textarea readonly="readonly">Descrição:
+          <?php foreach($descricao as $key => $desc){
+              echo "\n".$desc."\n";
+            }?></textarea>
 
 
-	<div id="conteudo">
+                  <label>Valor do Pedido: R$ <?php echo $retorno['valor_total']; ?></label>
+                  <label>Data do Pedido: <?php echo $retorno['data']; ?></label>
+                  <label style="width: 200px;">Situação: <?php echo $retorno['situacao']; ?></label>
+  </div>
+
+  <?php
+
+  }
+
+  ?>
+  </fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div id="conteudo">
+
+      <fieldset><legend>Pedidos Finalizados</legend>
       <?php
-
-        $SQL="SELECT *FROM Pedido WHERE id_conta='{$_SESSION['id_usuario']}'";
+        
+        $SQL="SELECT *FROM Pedido WHERE id_conta='{$_SESSION['id_usuario']}' and situacao='Entregue' or situacao='Cancelado'";
         $resultado=mysqli_query($conexao,$SQL);
 
         while ($retorno=mysqli_fetch_assoc($resultado)) {
@@ -38,7 +85,7 @@ include('../conexao.php');?>
 
                         <label>Valor do Pedido: R$ <?php echo $retorno['valor_total']; ?></label>
                         <label>Data do Pedido: <?php echo $retorno['data']; ?></label>
-                        <label>Situação: <?php echo $retorno['situacao']; ?></label>
+                        <label style="width: 200px;">Situação: <?php echo $retorno['situacao']; ?></label>
         </div>
 
         <?php
@@ -46,8 +93,16 @@ include('../conexao.php');?>
         }
 
         ?>
+        </fieldset>
 
 	</div>
+
+
+
+
+
+</div>
+
 
 
 	<div id="painel">
@@ -78,7 +133,7 @@ include('../conexao.php');?>
 
 	</div>
 
-
+  
 </div>
 
 
