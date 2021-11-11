@@ -516,7 +516,7 @@
 							<div class="cardapiobusca" id="carrega">
 
 								<?php
-									$resultado_pedido="SELECT * FROM Pedido";
+									$resultado_pedido="SELECT * FROM Pedido where situacao <> 'Entregue' and situacao <>'Cancelado' ";
 									$busca_pedido=mysqli_query($conexao,$resultado_pedido);
 
 									while($contador=mysqli_fetch_assoc($busca_pedido)) {
@@ -557,7 +557,7 @@ setInterval(function(){
 
 	 },
 
-	 9000);
+	 30000);
 
 </script>
 

@@ -343,29 +343,65 @@ body::-webkit-scrollbar-thumb {
 						    padding: 5px;
 						    border-bottom: 1px solid greenyellow;}
 
-
-
-
-
 #sobrediv{
 
-padding: 0;
-display: none;
-justify-content: center;
-flex-direction: column;
-align-items: right;
-width: 700px;
-height: 100%;
-background-color: rgba(248, 248, 248, 0);
-z-index: 40;}
+	padding: 0;
+	display: none;
+	justify-content: center;
+	flex-direction: column;
+	align-items: right;
+	width: 700px;
+	height: 100%;
+	background-color: rgba(248, 248, 248, 0);
+	z-index: 40;}
 
-#centro #cintro #sobrediv p{
-		font-size: 15px;}	
-
-#centro #cintro #sobrediv p pre{
-			width: 80%;
-			transform: translate(-25%);
-			font-size: 15px;}								
+#centro #cintro #sobrediv p{font-size: 15px;}
 
 #Sobre:checked ~ #centro #cintro #sobrediv{display: flex;}
 #Sobre:checked ~ #menu ul li #SobreLB::before{height: 300%;}
+
+
+@media  screen and (min-height: 800px)
+{
+#menu ul li label{width: 77px;}
+
+
+
+
+
+
+
+.itenscard label{font-size: 7px;}
+
+.itenscard img{width: 100%;height: 60%;margin-top: 2px;}
+
+.itenscard{width: 50px;height: 90px;}
+
+#cardapioitem{width: 100%;}	
+
+
+#centro #cintro #logindiv{width: 90%; 
+						  height: 60%;
+						  margin: auto;
+						  position: absolute;
+						  z-index: 2000;
+						  top: 50%;
+						  left: 50%;
+							transform: translate(-50%,-50%);}
+
+#centro #cintro{width: 100%;height: 60%;}
+#centro #cintro #inicio{width: 90%; height: 38%;}						
+
+	
+#sobrediv{
+	width: 90%;
+	}						
+
+#centro #cintro #logindiv #minilogo{width: 100%;
+									height: 50%;}
+
+
+
+
+
+}

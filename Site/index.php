@@ -12,6 +12,7 @@ session_start();
 	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
 	<link rel="manifest" href="/site.webmanifest">
 	<meta charset="utf-8">
+	<meta name="viewport"content="width-device-width,initial-scale=1">
 	<title>Healthy Food</title>
 	<link rel="stylesheet" type="text/css" href="CSS/estilo.css">
 </head>
@@ -164,8 +165,8 @@ session_start();
 		<div id="contatodiv">
 			<p> &nbsp; Se desejar entrar em contato conosco para sanar alguma dúvida você tem as seguintes opções:</p>
 
-			<label >Telefone: (21)xxxx-xxxx</label>
-			<label >Whatsapp: (21)xxxxx-xxxx</label>
+			<label >Telefone: (21)3958-3625</label>
+			<label >Whatsapp: (21)99856-6514</label>
 			<label >E-mail: contato@healthyfood.com</label>
 
 			<p> &nbsp; Lembrando que o contato deve-rá ser feito no horário comercial pelo telefone ou deixe uma mensagem no Whatsapp ou E-mail que entraremos em contato assim que possível.</p>
