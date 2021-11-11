@@ -51,8 +51,8 @@
             <label><?php echo $conteudo['nome'];?></label>
             <label><?php echo $conteudo['qtd'];?></label>
 
-            <label>Valor: R$<?php echo $conteudo['valor']*$conteudo['qtd'];?></label>
-            <textarea><?php echo $conteudo['descricao'];?></textarea>
+            <label>Valor: R$<?php echo number_format((float)$conteudo['valor']*$conteudo['qtd'],2,'.','');?></label>
+            <textarea readonly="readonly"><?php echo $conteudo['descricao'];?></textarea>
 
            </div>
 
@@ -72,7 +72,7 @@
 
      <form class="formulario"action="efeturarpedido.php" method="post">
 
-       <label style="margin-bottom:80px;font-weight:600;">Valor Total: R$<?php echo $valortotal; ?></label>
+       <label style="margin-bottom:80px;font-weight:600;">Valor Total: R$<?php echo number_format((float) $valortotal,2,'.',''); ?></label>
 
 
        <input style="display:none;"type="text" name="valortotal" value="<?php echo $valortotal; ?>">
@@ -131,7 +131,7 @@
 </fieldset>
 
 
-<input type="submit" name="efetuarpagamento" value="Finalizar Pedido">
+<input type="submit" name="efetuarpagamento" value="Finalizar Pedido" id="Fpedido">
 
 
 </form>
@@ -139,7 +139,7 @@
 </div>
     <a class="botaosair"href="limparcarrinho.php">Limpar Carrinho</a>
     <a class="botaosair"href="telacliente.php">Voltar</a>
-    
+
     </div>
 
 <div id="final">

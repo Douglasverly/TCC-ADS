@@ -240,6 +240,8 @@ body::-webkit-scrollbar-thumb {
 
 #itemCalc-Lucro:checked~.central #conteudo #Cal-Lucro{display:inline-block;}
 
+#Pedidos{display: inline-block;}
+
 /* CONFIGURAÇÃO DAS JANELAS */
 
 #CFuncionario:checked~.central #conteudo #CadFuncionario{display: inline-block;}
@@ -303,6 +305,23 @@ body::-webkit-scrollbar-thumb {
 .carditens .coluna2{position: absolute;top:45px;right: 10px;font-family: sans-serif;font-weight: 600;border-style: none; border-bottom: 2px solid rgb(173,255,47);width: 100px;text-align: center;}
 
 .carditens .coluna3{position: absolute;top:35px;left: 250px;font-family: sans-serif;font-weight: 600;border-bottom: 2px solid rgb(173,255,47);width: 100px;height: 40px;text-align: center;}
+
+.carditenspedido{display: inline-block;
+	width: 90%;
+	border-bottom:2px solid rgb(173,255,47);
+	position: relative;
+	 justify-content: center;
+	align-items: center;
+	margin-bottom: 2px;}
+
+.P1{width: 230px;height: 100px;}
+.P2{position: absolute;top:45px;left: 245px;font-family: sans-serif;font-weight: 600;border-style: none; border-bottom: 2px solid rgb(173,255,47);width: 100px;text-align: center;}
+.P3{position: absolute;top:45px;left: 370px;font-family: sans-serif;font-weight: 600;border-bottom: 2px solid rgb(173,255,47);width: 100px;text-align: center;}
+.P4{position: absolute;top:45px;left: 490px;font-family: sans-serif;font-size:16px;font-weight: 600;border-style: none; border-bottom: 2px solid rgb(173,255,47);width: 100px;text-align: center;}
+.P5{position: absolute;top:75px;right: 10px;width: 100px;height: 20px;}
+
+#Pedidos{display: none;}
+#pedidos:checked~.central #conteudo #Pedidos{display: inline-block;}
 
 
 	/*

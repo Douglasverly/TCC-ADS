@@ -906,8 +906,9 @@ include('verificarlogin.php');
 
 			<div id="DadosCargo">
 
-							<label class="coluna2-1"for="">R$: <?php echo $_SESSION['lucro'];  $_SESSION['lucro']=null;?></label>
-
+							<label class="coluna1-2"for="">Vendas R$: <?php echo $_SESSION['vendas'];  $_SESSION['vendas']=null;?></label>
+							<input class="coluna2-2"type="text" name="gastos" placeholder="Valores Gastos" value="<?php echo $_SESSION['gastos'];$_SESSION['gastos']=null; ?>">
+							<label class="coluna3-2"for="">Lucro R$: <?php echo $_SESSION['lucro'];  $_SESSION['lucro']=null;?></label>
 			</div>
 
 

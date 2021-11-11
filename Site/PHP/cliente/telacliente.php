@@ -90,7 +90,7 @@ error_reporting(0); ?>
 				<li><a style="text-decoration:none;color:black;"href="carrinho.php"><label class="itemmenu"for="carrinho"id="menuCardapio">Carrinho</label></a></li>
 
 
-				<li><label class="itemmenu"for="itemHistorico"id="menuHistorico">Pedidos</label></li>
+				<li><a style="text-decoration:none;color:black;"href="pedidoscliente.php"><label class="itemmenu"for="itempedido"id="menupedido">Pedidos</label></a></li>
 
 
 			</ul>

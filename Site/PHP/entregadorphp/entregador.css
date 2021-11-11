@@ -1,0 +1,65 @@
+*{margin: 0;padding: 0;}
+
+body{background-color: #F7FDF0;}
+
+
+.painel{
+
+        position: fixed;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 250px;
+        background-color: black;
+      }
+.painel label{color: white;position: absolute; right: 150px;font-size: 20px;}
+
+.painel nav{ width: 100%;height: 100%;}
+
+.painel nav ul {color: white;width: 100%;height: 100%;display: inline-flex;position: relative;
+justify-content: center;align-items: center;}
+.painel nav ul li{display: inline-flex;font-size: 20px;
+justify-content: center;background: greenyellow;
+align-items: center;color: black;height:80%;width: 200px;border-radius: 200px;}
+#menu2{position: absolute; left: 30px;}
+
+.painel nav ul li a{display: inline-flex;font-size: 20px;
+justify-content: center;background: greenyellow;
+align-items: center;color: black;height:80%;width: 200px;border-radius: 200px;text-decoration: none;}
+#menu2{position: absolute; left: 30px;}
+
+.conteudo{width: 100vw;
+          height: 100vh;
+          background-image: url('../../img/LOGO.png');
+          background-repeat: no-repeat;
+          background-position:center;
+          background-size: contain;
+          background-attachment: fixed;
+            }
+.form1{display: inline-flex;
+  margin-top: 300px;
+width: 100%;height: 100px;}
+
+.form1 input{width: 240px;height: 60px;margin: auto;font-size: 25px;background:greenyellow; }
+
+.conteudo #input1{border-bottom: 2px solid greenyellow;background: white;}
+
+
+.pedido{display: flex;position: relative; justify-content: center;align-items: center;}
+
+.itens{width: 200px;height: 50px; background-color: white;border-bottom: 2px solid greenyellow;display: flex;justify-content: center;align-items: left;flex-direction: column;}
+
+#C1{position: absolute;left: 20%;top: 100px;}
+#C2{position: absolute;right: 20%;top: 100px;}
+#C3{position: absolute;left: 20%;top: 200px;}
+#C4{position: absolute;right: 20%;top: 200px;}
+#C5{position: absolute;left: 20%;top: 400px;}
+#C6{position: absolute;right: 20%;top: 400px;}
+#C7{position: absolute;left: 20%;top: 500px;}
+#C8{position: absolute;right: 20%;top: 500px;}
+#C9{position: absolute;left: 20%;top: 600px;}
+#C10{position: absolute;right: 20%;top: 600px;}
+#C11{position: absolute;left: 10%;top: 800px;align-items: center;}
+#C12{position: absolute;left: 40%;top: 800px;}
+#C13{position: absolute;left: 70%;top: 800px;align-items: center;background-color: greenyellow;}

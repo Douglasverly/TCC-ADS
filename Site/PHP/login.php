@@ -43,7 +43,7 @@ if(($validacao == 1) && ($dados['id_access']==2))
 if(($validacao == 1) && ($dados['id_access']==3))
 {
     $_SESSION['nome']=$nome['nome'];
- header('Location: ../PHP/painel.php');
+ header('Location: ../PHP/entregadorphp/telaentregador.php');
  exit();
 }
 

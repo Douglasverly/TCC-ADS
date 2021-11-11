@@ -306,7 +306,8 @@ body::-webkit-scrollbar-thumb {
 
 
 
-#inicio{display: none;}
+#inicio{display: none;
+		}
 
 #cardapioitem::-webkit-scrollbar {
 	width: 8px;
