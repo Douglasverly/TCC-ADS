@@ -530,7 +530,7 @@
 				 						 </textarea>
 										<label class="P2"for="">R$<?php echo $contador['valor_total'];?> </label>
 										<label class="P3"for=""><?php echo $contador['form_pag'];?> </label>
-										<input type="text" style="display: none;" name="id_pedido"value="<?php echo $contador['id_pedido'];?>">
+										<input type="text"class="P6"  name="id_pedido" readonly value="<?php echo "ID do Pedido: ". $contador['id_pedido'];?>">
 										<input type="text"class="P4"name="situacao"for=""value="<?php echo $contador['situacao'];?>">
 										<input type="submit"class="P5"value="Atualizar">
 
