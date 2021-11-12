@@ -38,6 +38,7 @@ error_reporting(0); ?>
     <div class="produto">
       <img src="../../img/CardapioIMG/<?php echo $itens['id_imagem'] ?>"/>
       <label>Nome: <?php echo $itens['nome'];  ?></label>
+      <textarea name="" id="" cols="30"  readonly><?php echo $itens['descricao'];  ?></textarea>
       <label>Valor: R$ <?php echo $itens['valor']; ?></label>
       <a href="?adicionar=<?php echo $itens['id_item']; ?>">adicionar ao carrinho!</a>
     </div>

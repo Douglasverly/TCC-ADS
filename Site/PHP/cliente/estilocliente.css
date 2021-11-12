@@ -263,3 +263,4 @@ body::-webkit-scrollbar-thumb {
 .endereco label{margin-right: 30px;width: 200px;margin-left: 30px;padding: 50px;}
 
 .botaosair{padding: 6px;background-color: chartreuse;cursor: pointer;text-decoration: none;margin-bottom: 10px;width: 200px;text-align: center;color: black;}
+.produto textarea{width: 100%;background:none;height: 100px;}
