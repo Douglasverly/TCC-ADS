@@ -845,7 +845,7 @@ include('verificarlogin.php');
 					</form>
 
 
-					<div style="height: 60%;width:100%;">
+					<div style="height: 60%;width:100%; overflow-y:scroll">
 						<?php
 						if(!empty($dados['buscarh'])){
 
@@ -858,7 +858,7 @@ include('verificarlogin.php');
 
 								?>
 										<div style='border-bottom:2px solid greenyellow;width:100%;height:20%;position:relative;display:inline-flex;justify-content:center;flex-direction:column;'>
-								    <label for='' style='color:black;border:1px solid greenyellow;position:absolute;left:10px;'>Nome: <??><?php echo $contar['descricao_item'];  ?></label>
+								    <textarea style='color:black;border:1px solid greenyellow;position:absolute;left:10px;height:100%;'><?php echo $contar['descricao_item'];  ?></textarea>
 								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:220px;'>Valor: <?php echo $contar['valor'];  ?></label>
 								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:330px;'>Situação:<?php echo $contar['situacao_pedido'];  ?></label>
 								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:480px;'>Data: <?php echo $contar['dt_pedido'];  ?></label>
