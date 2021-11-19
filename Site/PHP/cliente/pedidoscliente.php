@@ -68,12 +68,12 @@ include('../conexao.php');?>
       <fieldset><legend>Pedidos Finalizados</legend>
       <?php
         
-        $SQL="SELECT *FROM Pedido WHERE id_conta='{$_SESSION['id_usuario']}' and situacao='Entregue' or situacao='Cancelado'";
+        $SQL="SELECT *FROM historico WHERE id_usuario='{$_SESSION['id_usuario']}'";
         $resultado=mysqli_query($conexao,$SQL);
 
         while ($retorno=mysqli_fetch_assoc($resultado)) {
 
-            $descricao=explode('|',$retorno['descricao']);
+            $descricao=explode('|',$retorno['descricao_item']);
 
             ?>
             <div class="pedidos">
@@ -83,9 +83,9 @@ include('../conexao.php');?>
                   }?></textarea>
 
 
-                        <label>Valor do Pedido: R$ <?php echo $retorno['valor_total']; ?></label>
-                        <label>Data do Pedido: <?php echo $retorno['data']; ?></label>
-                        <label style="width: 200px;">Situação: <?php echo $retorno['situacao']; ?></label>
+                        <label>Valor do Pedido: R$ <?php echo $retorno['valor']; ?></label>
+                        <label>Data do Pedido: <?php echo $retorno['dt_pedido']; ?></label>
+                        <label style="width: 200px;">Situação: <?php echo $retorno['situacao_pedido']; ?></label>
         </div>
 
         <?php
