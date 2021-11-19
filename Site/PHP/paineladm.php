@@ -859,8 +859,8 @@ include('verificarlogin.php');
 								?>
 										<div style='border-bottom:2px solid greenyellow;width:100%;height:20%;position:relative;display:inline-flex;justify-content:center;flex-direction:column;'>
 								    <textarea style='color:black;border:1px solid greenyellow;position:absolute;left:10px;height:100%;'><?php echo $contar['descricao_item'];  ?></textarea>
-								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:220px;'>Valor: <?php echo $contar['valor'];  ?></label>
-								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:330px;'>Situação:<?php echo $contar['situacao_pedido'];  ?></label>
+								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:200px;'>Valor: <?php echo $contar['valor'];  ?></label>
+								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:300px;'>Situação:<?php echo $contar['situacao_pedido'];  ?></label>
 								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:480px;'>Data: <?php echo $contar['dt_pedido'];  ?></label>
 								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:620px;'>N°Pedido: <?php echo $contar['id_pedido'];  ?></label>
 
