@@ -860,7 +860,7 @@ include('verificarlogin.php');
 										<div style='border-bottom:2px solid greenyellow;width:100%;height:20%;position:relative;display:inline-flex;justify-content:center;flex-direction:column;'>
 								    <label for='' style='color:black;border:1px solid greenyellow;position:absolute;left:10px;'>Nome: <??><?php echo $contar['descricao_item'];  ?></label>
 								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:220px;'>Valor: <?php echo $contar['valor'];  ?></label>
-								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:290px;'>Situação:<?php echo $contar['situacao_pedido'];  ?></label>
+								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:330px;'>Situação:<?php echo $contar['situacao_pedido'];  ?></label>
 								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:480px;'>Data: <?php echo $contar['dt_pedido'];  ?></label>
 								    <label for=''style='color:black;border:1px solid greenyellow;position:absolute;left:620px;'>N°Pedido: <?php echo $contar['id_pedido'];  ?></label>
 
@@ -908,7 +908,7 @@ include('verificarlogin.php');
 
 							<label class="coluna1-2"for="">Vendas R$: <?php echo $_SESSION['vendas'];  $_SESSION['vendas']=null;?></label>
 							<input class="coluna2-2"type="text" name="gastos" placeholder="Valores Gastos" value="<?php echo $_SESSION['gastos'];$_SESSION['gastos']=null; ?>">
-							<label class="coluna3-2"for="">Lucro R$: <?php echo $_SESSION['lucro'];  $_SESSION['lucro']=null;?></label>
+							<label class="coluna3-2"for="">Lucro R$: <?php echo number_format((float) $_SESSION['lucro'],2,'.','');  $_SESSION['lucro']=null;?></label>
 			</div>
 
 

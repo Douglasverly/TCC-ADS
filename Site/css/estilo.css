@@ -361,10 +361,9 @@ body::-webkit-scrollbar-thumb {
 #Sobre:checked ~ #menu ul li #SobreLB::before{height: 300%;}
 
 
-@media  screen and (min-height: 800px)
+@media  screen and  (min-height: 800px)
 {
-#menu ul li label{width: 77px;}
-
+#menu ul li label{width: 60px;height: 50px;font-size: 10px;}
 
 
 

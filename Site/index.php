@@ -108,7 +108,8 @@ session_start();
 		<div class="itenscard">
 
 			<img src="img/cardapioIMG/<?php echo $resultado['id_imagem'];?>">
-			<label>Nome: <?php echo $resultado['nome'] ?></label>
+			<label><?php echo $resultado['nome'] ?></label>
+			<label>Valor: <?php echo $resultado['valor'] ?></label>
 
 
 		</div>
